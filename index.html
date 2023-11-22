@@ -4,13 +4,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      table {
+        margin: 0 auto; /* Center the table horizontally */
+      }
+      table,
+      th,
+      td {
+        border: 1px solid skyblue;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 15px;
+      }
+      .demo a {
+        color: green;
+      }
+      tr:nth-child(even) {
+        background-color: #d6eeee;
+      }
+      .container {
+      
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
-    <table>
+    <div class="container">
+      <h2><b>Name:</b> Sadisha Shrestha</h2>
+      <h2>Roll No: 16</h2>
+      <h2>Group: F</h2>
+    </div>
+    <br>
+    <table style="width: 80%">
+      <tr colspan="3"></tr>
       <tr>
-        <th>Title</th>
-        <th>Source Code</th>
-        <th>Demo</th>
+        <th style="width: 30%">Title</th>
+        <th style="width: 30%">Source Code</th>
+        <th style="width: 30%">Demo</th>
       </tr>
       <tr>
         <td>Assignment-1</td>
@@ -20,7 +55,7 @@
             >SourceCode</a
           >
         </td>
-        <td><a href="./HTML-CSS/1stDesign">Demo</a></td>
+        <td class="demo"><a href="./HTML-CSS/1stDesign">Demo</a></td>
       </tr>
       <tr>
         <td>Assignment-2</td>
@@ -30,7 +65,17 @@
             >SourceCode</a
           >
         </td>
-        <td><a href="./HTML-CSS/2ndDesign">Demo</a></td>
+        <td class="demo"><a href="./HTML-CSS/2ndDesign">Demo</a></td>
+      </tr>
+      <tr>
+        <td>Assignment-3</td>
+        <td>
+          <a
+            href="https://github.com/sadishaaaa/LeapFrogAssignment/tree/master/HTML-CSS/2ndDesign"
+            >SourceCode</a
+          >
+        </td>
+        <td class="demo"><a href="./HTML-CSS/2ndDesign">Demo</a></td>
       </tr>
     </table>
   </body>
