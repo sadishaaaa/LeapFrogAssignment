@@ -5,6 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href=" " />
+    <!-- inti css -->
+    <style>
+      .intro {
+  background-color: white;
+  color:black;
+  position: absolute;
+  width: fit-content;
+  margin-left: 46vw;
+  margin-top: 10vw;
+  padding: 30px;
+  box-shadow: 0px 24px 64px -12px rgba(26, 24, 65, 0.06);
+  border-radius: 8px;
+}
+.intro h1,
+p {
+  width: 310px;
+  margin: auto;
+}
+.intro p {
+  font-weight: 500;
+  margin-top: 20px;
+}
+.featured_img {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "overlap";
+}
+.featured_img img {
+  float: left;
+  width: 80%;
+  border-radius: 5px;
+  grid-area: overlap;
+  justify-self: left;
+}
+
+
+    </style>
     <!-- Font-awesome link -->
     <link
       rel="stylesheet"
@@ -18,6 +56,9 @@
   </head>
   <body>
     <header class="bg-primary">
+      <!-- <div class="container_wrapper">
+
+      </div> -->
       <div class="container header">
         <!-- logo -->
         <h1 class="header__logo">
@@ -139,27 +180,55 @@
       </div>
     </section>
     <section class="download">
-      <!-- Download Section -->
-      <div class="download__feature_image">
-        <figure>
-          <img src="./assets/img/Rectangle 39.png" alt="" />
-        </figure>
-      </div>
-      <div class="download__recommendation">
-        <h2>Ready for the future</h2>
-        <h2>Download The App!</h2>
-        <p>
-          Download the banking app to easily manage your finances, check account
-          balances, transfer money, pay bills, and access a range of banking
-          services from your mobile device.
-        </p>
-        <!-- Download button -->
+      <!-- download section for big screen -->
+      <div class="download__big_screen">
+        <div class="intro">
+          <h2>Ready for the future</h2>
+          <h2>Download The App!</h2>
+          <p>
+            Download the banking app to easily manage your finances, check account
+            balances, transfer money, pay bills, and access a range of banking
+            services from your mobile device.
+          </p>
+          <!-- Download button -->
         <div class="download__btn">
           <a href=""><img src="./assets/img/googlePlay.svg" alt=""></a>
           <a href=""><img src="./assets/img/appStore.svg" alt=""></a>
         </div>
+      </div>
+      <div class="featured_img">
+        <img src="./assets/img/Rectangle 39.png" alt="interior_design" />
+        
+      </div>
+
+      </div>
+      <!-- checking -->
+      
+        
+      <!-- Download Section for small screen -->
+      <div class="download__small_screen">
+        <div class="download__feature_image">
+          <figure>
+            <img src="./assets/img/Rectangle 39.png" alt="" />
+          </figure>
+        </div>
+        <div class="download__recommendation">
+          <h2>Ready for the future</h2>
+          <h2>Download The App!</h2>
+          <p>
+            Download the banking app to easily manage your finances, check account
+            balances, transfer money, pay bills, and access a range of banking
+            services from your mobile device.
+          </p>
+          <!-- Download button -->
+          <div class="download__btn">
+            <a href=""><img src="./assets/img/googlePlay.svg" alt=""></a>
+            <a href=""><img src="./assets/img/appStore.svg" alt=""></a>
+          </div>
+          </div>
         </div>
       </div>
+      
     </section>
     <!-- client container -->
     <section class="container client">
