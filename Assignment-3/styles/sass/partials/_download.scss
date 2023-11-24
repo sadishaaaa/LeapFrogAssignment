@@ -1,0 +1,30 @@
+.download {
+  padding: 0;
+  color: $black;
+  &__recommendation {
+    padding: 36px;
+    width: 70%;
+    // @media screen and (min-width: 768px) {
+    //   padding: 0px 30px 20px 30px;
+    //   height: 18rem;
+    //   border-radius: 12px;
+    //   position: absolute;
+    //   top: 150%;
+    //   left: 50%;
+    //   width: 30rem;
+    //   background-color: #fff;
+    // }
+    // @media screen and (min-width: 1400px) {
+    //   top: 143%;
+    //   left: 50%;
+    // }
+  }
+}
+figure img {
+  width: 100%;
+  @media screen and (min-width: 768px) {
+    position: relative;
+    padding: 0 36px;
+    width: 80%;
+  }
+}

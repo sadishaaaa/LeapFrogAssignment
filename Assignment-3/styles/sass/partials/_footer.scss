@@ -1,0 +1,87 @@
+footer {
+  color: $black;
+  background: #efeeff;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+ul li {
+  padding-bottom: 1rem;
+}
+.footer_link ul li a {
+  color: rgba(29, 28, 49, 0.6);
+}
+
+.footer {
+  &__btn {
+    background: var(--4-e-46-e-8, #4e46e8);
+    color: var(--ffffff, #fff);
+    @media screen and (min-width: 768px) {
+      background-color: #fff;
+      color: $black;
+    }
+  }
+  &__links {
+    display: flex;
+    gap: 10rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background: transparent;
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
+  &__input {
+    background: transparent;
+    border: none;
+  }
+  &__main {
+    @media screen and (min-width: 768px) {
+      padding: 5rem 0 5rem 0;
+      display: flex;
+      gap: 10rem;
+    }
+  }
+  &__content {
+    @media screen and (min-width: 768px) {
+      padding: 2rem;
+      background-color: $black;
+      color: #fff;
+      border-radius: 8px;
+    }
+  }
+}
+
+.footer_link {
+  list-style-type: none;
+  text-align: left;
+  padding-left: 0;
+}
+.footer__privacy {
+  display: flex;
+  justify-content: space-between;
+}
+.icons a {
+  padding: 1rem 1rem 1rem 0;
+}
+.footer__content p {
+  @media screen and (min-width: 768px) {
+    color: #fff;
+  }
+}
+.form-control {
+  width: 100%;
+  padding: 1rem 0.5rem;
+  border: none;
+  border-bottom: 1px solid grey;
+  @media screen and (min-width: 768px) {
+    border-bottom: 1px solid white;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

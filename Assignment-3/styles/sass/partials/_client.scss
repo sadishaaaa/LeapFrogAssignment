@@ -1,0 +1,36 @@
+.client {
+  padding-bottom: 4rem;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+  p {
+    margin: 0;
+    padding-bottom: 1rem;
+  }
+  &__review {
+    display: flex;
+    gap: 2rem;
+    flex-shrink: 1;
+  }
+  &__review_card {
+    border-radius: 8px;
+    padding: 2rem 2rem 1rem 2rem;
+    outline: 1px solid grey;
+    box-shadow: 0px 24px 64px -12px rgba(26, 24, 65, 0.06);
+    &.bg-primary {
+      background-color: var(
+        --ffffff-2-paints,
+        linear-gradient(65deg, #362fcc 31.84%, #5d55ff 68.16%),
+        #fff
+      );
+      color: #fff;
+    }
+  }
+  &__info {
+    display: flex;
+    align-items: center;
+  }
+}
+h4 {
+  margin: 0;
+}

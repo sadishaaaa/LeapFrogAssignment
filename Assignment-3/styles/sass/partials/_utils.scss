@@ -1,0 +1,37 @@
+.container {
+  padding: 0 24px;
+
+  @media screen and (min-width: 768px) {
+    padding: 0 36px;
+    .header {
+      &__nav--item {
+        color: #b6b3eb;
+      }
+      &__nav {
+        display: flex;
+        list-style-type: none;
+        gap: 32px;
+        align-items: center;
+      }
+      &__burger-icon {
+        display: none;
+      }
+    }
+  }
+  @media screen and (min-width: 1440px) {
+    padding: 0;
+    max-width: 1400px;
+    margin: 0 auto;
+    &__burger-icon {
+      display: none;
+    }
+  }
+  .bg-primary {
+    background-color: var(
+      --ffffff-2-paints,
+      linear-gradient(65deg, #362fcc 31.84%, #5d55ff 68.16%),
+      #fff
+    );
+    color: #fff;
+  }
+}
