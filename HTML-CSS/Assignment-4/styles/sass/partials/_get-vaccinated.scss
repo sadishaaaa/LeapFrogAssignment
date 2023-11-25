@@ -1,0 +1,36 @@
+.get-vaccinated {
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+  &__box.special {
+    border-radius: 20px 80px 20px 20px;
+    background: rgba(196, 196, 196, 0.2);
+  }
+  &__box {
+    padding: 2rem;
+    border-radius: 49.896px;
+    border: 2.994px solid rgba(255, 255, 255, 0.5);
+  }
+}
+@media only screen and (min-width: 768px) {
+  .get-vaccinated {
+    &__flex1 {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+    &__flex2 {
+      display: flex;
+      gap: 4rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .get-vaccinated {
+    &__flex1 {
+      flex-direction: row;
+    }
+  }
+}

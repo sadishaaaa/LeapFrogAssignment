@@ -9,7 +9,7 @@
     <meta name="author" content="Sadisha Shrestha" />
 
     <!-- Fav-icon -->
-    <link rel="icon" type="image/x-icon" href="/assets/img/coronavirus.png" />
+    <link rel="icon" type="image/x-icon" href="./assets/img/coronavirus.png" />
 
     <!-- title of landing page -->
     <title>Vaccination.ng</title>
@@ -46,7 +46,7 @@
             </ul>
           </nav>
           <div class="header__btn">
-            <button>Check Status</button>
+            <button class="dark">Check Status</button>
           </div>
           <!-- Burger Icon for mobile view -->
           <div class="header__burger_icon">
@@ -60,49 +60,78 @@
       <!-- Home Section -->
       <div class="wrapper__home">
         <div class="container home">
-          <!-- Descriptive content -->
-          <div class="home__descriptive_content">
-            <span class="skyblue"
-              ><h2>Get Vaccinated. Boost your Immune System</h2></span
-            >
-            <h1>
-              COVID-19 Vaccination <br />
-              Got Easier With,<br />
-              <span class="skyblue">Vaccination.ng</span>
-            </h1>
-            <p>
-              Vaccination.ng will help you find the nearest centre for
-              vaccination, in all 36 states in Nigeria.
-            </p>
-            <div class="home__btn">
-              <button class="home__active">Get Vaccine</button>
-              <button>Help Center</button>
+          <div class="home__content">
+            <!-- Descriptive content -->
+            <div class="home__descriptive_content">
+              <span class="skyblue"
+                ><h2>Get Vaccinated. Boost your Immune System</h2></span
+              >
+              <br /><br />
+              <br />
+              <h1>
+                COVID-19 Vaccination <br />
+                Got Easier With,<br />
+                <span class="skyblue">Vaccination.ng</span>
+              </h1>
+              <br />
+              <br />
+
+              <p>
+                Vaccination.ng will help you find the nearest centre for
+                vaccination, in all 36 states in Nigeria.
+              </p>
+              <br />
+              <br />
+              <div class="home__btn">
+                <button class="home__active light">Get Vaccine</button>
+                <button class="dark outlined">Help Center</button>
+              </div>
+            </div>
+            <!-- Home Image content -->
+            <div class="home__image_content">
+              <img src="./assets/img/home.svg" alt="" />
             </div>
           </div>
-          <!-- Home Image content -->
-          <div class="home__image_content">
-            <img src="./assets/img/home.svg" alt="" />
-          </div>
+
           <!-- Home Info Content -->
           <div class="home__info_content">
             <!-- Info Heading -->
+            <img src="./assets/icons/clock.svg" alt="" />
             <h3>Schedule your Vaccination</h3>
-            <!-- Location Information -->
+          </div>
+          <!-- Location Information -->
+          <div class="home__info_container">
             <div class="home__info">
               <div class="home__info_logo">
                 <img src="./assets/icons/map-pin.svg" alt="map-pin logo" />
               </div>
-              <div class="home__info_content">
+              <div class="home__info_detail">
                 <span class="home__info_title">Location</span>
                 <span class="home__info_title_content">
                   Ikeja Lagos, Nigeria
                 </span>
               </div>
             </div>
-            <!-- Repeat for additional locations -->
-            <!-- ... -->
+            <div class="home__info">
+              <div class="home__info_logo">
+                <img src="./assets/icons/calender.svg" alt="map-pin logo" />
+              </div>
+              <div class="home__info_detail">
+                <span class="home__info_title">Date</span>
+                <span class="home__info_title_content"> 25 Nov, 2023 </span>
+              </div>
+            </div>
+            <div class="home__info">
+              <div class="home__info_logo">
+                <img src="./assets/icons/shield.svg" alt="map-pin logo" />
+              </div>
+              <div class="home__info_detail">
+                <span class="home__info_title">Vaccine Type</span>
+                <span class="home__info_title_content"> Mordena </span>
+              </div>
+            </div>
             <div class="home__info_btn">
-              <button>Submit</button>
+              <button class="light">Submit</button>
             </div>
           </div>
         </div>
@@ -112,85 +141,104 @@
       <div class="wrapper__banner">
         <div class="container banner">
           <!-- Brand Logos -->
-          <img src="./assets/logo/Moderna_logo 1.png" alt="Brand logo" />
-          <img src="./assets/logo/Pfizer_(2021) 1.png" alt="Brand logo" />
-          <img
-            src="./assets/logo/yellow-logo-zeneca-pharmaceutical-industry-brand 1.png"
-            alt="Brand logo"
-          />
-          <img src="./assets/logo/sinovac1336 1.png" alt="Brand logo" />
+          <div class="banner__brand_logo">
+            <img src="./assets/logo/Moderna_logo 1.png" alt="Brand logo" />
+          </div>
+          <div class="banner__brand_logo">
+            <img src="./assets/logo/Pfizer_(2021) 1.png" alt="Brand logo" />
+          </div>
+          <div class="banner__brand_logo">
+            <img
+              src="./assets/logo/yellow-logo-zeneca-pharmaceutical-industry-brand 1.png"
+              alt="Brand logo"
+            />
+          </div>
+          <div class="banner__brand_logo">
+            <img src="./assets/logo/sinovac1336 1.png" alt="Brand logo" />
+          </div>
         </div>
       </div>
 
       <!-- COVID Result Section -->
       <div class="wrapper__covidResult">
-        <div class="container covidResult">
-          <!-- Form for Checking COVID-19 Result -->
-          <div class="covidResult__form-title">
-            Check your COVID-19 result on our Database
+        <div class="covidResult_container container">
+          <div class="covidResult">
+            <!-- Form for Checking COVID-19 Result -->
+            <div class="covidResult__form-title">
+              Check your COVID-19 result on our Database
+            </div>
+            <form class="covidResult__form-container">
+              <input type="text" id="fname" name="fname" value="okeowo" /><br />
+              <input
+                type="text"
+                id="lname"
+                name="lname"
+                placeholder="NIK Number"
+              /><br /><br />
+              <button class="covidResult__form-btn dark outlined" type="button">
+                Check
+              </button>
+            </form>
+            <h4 class="skyblue">
+              Need a certificate for your COVID-19 result? Please click
+              <a href="#" class="skyblue">here</a>
+            </h4>
           </div>
-          <form action="/action_page.php">
-            <input type="text" id="fname" name="fname" value="okeowo" /><br />
-            <input
-              type="text"
-              id="lname"
-              name="lname"
-              placeholder="NIK Number"
-            /><br /><br />
-            <button type="button">Check</button>
-          </form>
-          <p>
-            <span class="skyblue"
-              >Need a certificate for your COVID-19 result? Please click
-              here</span
-            >
-          </p>
         </div>
       </div>
 
       <!-- Get Vaccinated Section -->
       <div class="wrapper__get-vaccinated">
         <div class="container get-vaccinated">
-          <h1>Why get vaccinated <br />today?</h1>
-          <p>
-            Magna adipiscing at elit at ornare lectus nibh lorem. Ac, sed ac
-            lorem pellentesque vestibulum risus matti. In molestie condimentum
-            malesuada non.
-          </p>
+          <div class="get-vaccinated__content">
+            <h1>Why get vaccinated <br />today?</h1>
+            <p>
+              Magna adipiscing at elit at ornare lectus nibh lorem. Ac, sed ac
+              lorem pellentesque vestibulum risus matti. In molestie condimentum
+              malesuada non.
+            </p>
+          </div>
           <!-- Vaccination Benefits -->
           <div class="get-vaccinated__boxes">
-            <div class="get-vaccinated__box">
-              <div class="get-vaccinated__icon">
-                <img src="assets/icons/shield.svg" alt="" />
+            <div class="get-vaccinated__flex1">
+              <div class="get-vaccinated__box special">
+                <div class="get-vaccinated__icon">
+                  <img src="assets/icons/shield.svg" alt="" />
+                </div>
+                <h2>Protects your immune system against viruses</h2>
+                <p>
+                  Velit ut consectetur mauris, orci amet, faucibus. Sit turpis
+                  fringilla ipsum pretium, dictum. Dolor eget vel nulla lorem
+                  ac.
+                </p>
+                <a href=""><span class="skyblue">Read more -></span></a>
               </div>
-              <h2>Protects your immune system against viruses</h2>
-              <p>
-                Velit ut consectetur mauris, orci amet, faucibus. Sit turpis
-                fringilla ipsum pretium, dictum. Dolor eget vel nulla lorem ac.
-              </p>
-              <a href=""><span class="skyblue">Read more -></span></a>
-            </div>
-            <div class="get-vaccinated__box">
-              <div class="get-vaccinated__icon">
-                <img src="assets/icons/shield.svg" alt="" />
+              <div class="get-vaccinated__flex2">
+                <div class="get-vaccinated__box">
+                  <div class="get-vaccinated__icon">
+                    <img src="assets/icons/user.svg" alt="" />
+                  </div>
+                  <h2>Minimize the spread of the Virus</h2>
+                  <p>
+                    Velit ut consectetur mauris, orci amet, faucibus. Sit turpis
+                    fringilla ipsum pretium, dictum. Dolor eget vel nulla lorem
+                    ac.
+                  </p>
+                  <span><a href="">Read more -></a></span>
+                </div>
+                <div class="get-vaccinated__box">
+                  <div class="get-vaccinated__icon">
+                    <img src="assets/icons/thermometer.svg" alt="" />
+                  </div>
+                  <h2>Protect yourself</h2>
+                  <p>
+                    Velit ut consectetur mauris, orci amet, faucibus. Sit turpis
+                    fringilla ipsum pretium, dictum. Dolor eget vel nulla lorem
+                    ac.
+                  </p>
+                  <span><a href="">Read more -></a></span>
+                </div>
               </div>
-              <h2>Protects your immune system against viruses</h2>
-              <p>
-                Velit ut consectetur mauris, orci amet, faucibus. Sit turpis
-                fringilla ipsum pretium, dictum. Dolor eget vel nulla lorem ac.
-              </p>
-              <span class="skyblue"><a href="">Read more -></a></span>
-            </div>
-            <div class="get-vaccinated__box">
-              <div class="get-vaccinated__icon">
-                <img src="assets/icons/shield.svg" alt="" />
-              </div>
-              <h2>Protects your immune system against viruses</h2>
-              <p>
-                Velit ut consectetur mauris, orci amet, faucibus. Sit turpis
-                fringilla ipsum pretium, dictum. Dolor eget vel nulla lorem ac.
-              </p>
-              <span class="skyblue"><a href="">Read more -></a></span>
             </div>
           </div>
         </div>

@@ -1,0 +1,49 @@
+.covidResult {
+  border-radius: 20px;
+  background: rgba(196, 196, 196, 0.1);
+  padding: 1rem;
+  h4 {
+    border-radius: 10px;
+    background: rgba(196, 196, 196, 0.05);
+    padding: 1rem;
+    text-align: center;
+  }
+  &__form-container {
+    padding: 1rem;
+  }
+  &__form-title {
+    text-align: center;
+    color: #fff;
+    padding: 1rem 1rem;
+  }
+  &__form-container {
+    display: flex;
+    flex-direction: column;
+    input {
+      border-radius: 10px;
+      padding: 1rem;
+      color: #fff;
+      background: rgba(196, 196, 196, 0.1);
+      border: 3px solid skyblue;
+    }
+  }
+  &__form-btn {
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .covidResult {
+    &__form-container {
+      flex-direction: row;
+      gap: 1rem;
+      justify-content: center;
+      input {
+        width: 30%;
+      }
+    }
+    &__form-btn {
+      width: 15%;
+    }
+  }
+}
