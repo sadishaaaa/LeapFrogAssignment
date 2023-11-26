@@ -17,6 +17,9 @@
   background-color: #0b153c;
 }
 .wrapper {
+  &__symptoms {
+    background: #0b153c;
+  }
   &__header {
     background: #0b153c;
     position: fixed;
@@ -44,5 +47,11 @@
     padding-top: 8rem;
     padding-bottom: 8rem;
     color: white;
+  }
+  &__footer {
+    background: #0b153c;
+  }
+  &__vaccine-registration{
+    background: url(<path-to-image>), lightgray 50% / cover no-repeat, rgba(255, 255, 255, 0.50);
   }
 }

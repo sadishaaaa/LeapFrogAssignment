@@ -16,6 +16,9 @@
 
     <!-- Linking CSS file in this page -->
     <link rel="stylesheet" href="./styles/style.css" />
+
+<!-- Iconify link -->
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
   </head>
   <body>
     <!-- Whole content wrapper -->
@@ -26,7 +29,7 @@
           <!-- Navigation bar -->
           <!-- Logo -->
           <h1 class="header__logo">
-            <a href="#">Vaccination.ng</a>
+            <a href="#"><img src="./assets//img/logo.svg" alt="" /></a>
           </h1>
           <nav class="nav">
             <!-- Navigation links -->
@@ -243,8 +246,170 @@
           </div>
         </div>
       </div>
+      <!-- Vaccine Registration section -->
       <div class="wrapper__vaccine-registration">
-        <div class="container vaccine-registration"></div>
+        <div class="container registration">
+          <h2>Get your vaccine registration today</h2>
+          <!-- <img src="./assets/img/Group 45.png" alt=""> -->
+          <div class="registration__container">
+
+       
+            <div class=" container registration__vaccine">
+              <div class="registration__verify">
+                  <h3>Covid-19  <br>Vaccine</h3>
+                  <button>Verify</button>
+              </div>
+            </div>
+            <div>
+          <form class="registration__form">
+            <label for="fname"><b>Patient's Full Name</b></label><br /> <br>
+            <input
+              type="text"
+              id="fname"
+              name="fname"
+              placeholder="Full name"
+            /><br /> <br>
+            <label for="mobile-no"><b>Mobile Number</b></label><br /> <br>
+            <span
+              >Notifications for appointment and reminders will be sent to this
+              provided number</span
+            >
+            <br>
+            <br>
+            <div class="registration__select-box">
+              <div class="registration__select-option">
+              
+                  <div class="registration__flag">
+                    <span class="iconify" data-icon="emojione-v1:flag-for-nigeria"></span>
+                    <span class="iconify" data-icon="iconamoon:arrow-down-2-duotone"></span>
+                  </div>
+                  <input
+                type="number"
+                id="mobile-no"
+                name="mobile-no"
+                pattern="Phone number"
+              />
+                
+                
+              </div>
+              <button class="verify light">Verify</button>
+            </div>
+            <br />
+  
+          </form>
+          <br>
+          <br>
+          <button class="registration__submit light">Submit</button>
+          <br>
+          <div class="registration__footer">
+            <span>Already registered ?</span>
+            <span class="skyblue">Check your status</span>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      <!-- Covid Symptoms section -->
+      <div class="wrapper__symptoms">
+        <div class="container symptoms">
+          <h2>Covid-19 Prevention</h2>
+          <h1><span class="skyblue">COVID-19</span> Symptoms</h1>
+          <p>
+            Adipiscing nec etiam tortor elit quisque. Arcu aliquet convallis
+            aenean eu velit. Mi vestibulum, ullamcorper venenatis imperdiet
+            augue arcu donec neque.
+          </p>
+          <img src="./assets/img/symptoms.svg" alt="" />
+        </div>
+      </div>
+      <!-- feedback section -->
+      <div class="wrapper__feedback">
+        <div class="container feedback">
+          <h2><span class="skyblue">FEEDBACK</span></h2>
+          <h1>What our Patients Think</h1>
+          <p>
+            Adipiscing nec etiam tortor elit quisque. Arcu aliquet convallis
+            aenean eu velit. Mi vestibulum, ullamcorper venenatis imperdiet
+            augue arcu ue.
+          </p>
+          <div class="feedback__container">
+            <div class="feedback__card">
+              <div class="feedback__patient_info">
+                <div class="feedback__patient_img">
+                  <img src="./assets/img/patient1.png" alt="Image of patient" />
+                </div>
+                <div class="feedback__details">
+                  <h3>Oyindamola Maja</h3>
+                  <span>Badagry, Lagos</span>
+                </div>
+                <p>
+                  “Been stressing about a close centre to get the covid-19
+                  vaccine, until i tried Vaccination.ng”
+                </p>
+              </div>
+            </div>
+            <div class="feedback__card">
+              <div class="feedback__patient_info">
+                <div class="feedback__patient_img">
+                  <img src="./assets/img/patient1.png" alt="Image of patient" />
+                </div>
+                <div class="feedback__details">
+                  <h3>Oyindamola Maja</h3>
+                  <span>Badagry, Lagos</span>
+                </div>
+                <p>
+                  “Been stressing about a close centre to get the covid-19
+                  vaccine, until i tried Vaccination.ng”
+                </p>
+              </div>
+            </div>
+            <div class="feedback__card">
+              <div class="feedback__patient_info">
+                <div class="feedback__patient_img">
+                  <img src="./assets/img/patient1.png" alt="Image of patient" />
+                </div>
+                <div class="feedback__details">
+                  <h3>Oyindamola Maja</h3>
+                  <span>Badagry, Lagos</span>
+                </div>
+                <p>
+                  “Been stressing about a close centre to get the covid-19
+                  vaccine, until i tried Vaccination.ng”
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="wrapper__footer">
+        <footer class="footer container">
+          <div class="logo">
+            <img src="./assets/img/logo.svg" alt="logo of website" />
+          </div>
+          <div class="footer__links">
+            <ul>
+              <li>
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a href="#">Services</a>
+              </li>
+              <li>
+                <a href="#">Schedule</a>
+              </li>
+              <li>
+                <a href="#">Contact us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer_icons">
+            <img src="./assets/icons/youtube.svg" alt="" />
+            <img src="./assets/icons/insta.svg" alt="" />
+            <img src="./assets/icons/twitter.svg" alt="" />
+            <img src="./assets/icons/facebook.svg" alt="" />
+          </div>
+        </footer>
       </div>
     </div>
   </body>
