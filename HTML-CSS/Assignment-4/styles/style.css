@@ -329,6 +329,10 @@ h2 {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 .container {
   padding: 0 24px 0 24px;
 }
@@ -361,6 +365,12 @@ h2 {
   background-color: #0b153c;
 }
 
+.icon-border {
+  border-radius: 10px;
+  background: rgba(196, 196, 196, 0.15);
+  padding: 0.75rem;
+}
+
 .wrapper__symptoms {
   background: #0b153c;
 }
@@ -386,11 +396,13 @@ h2 {
 }
 .wrapper__get-vaccinated {
   background: #0b153c;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
   color: white;
 }
 .wrapper__feedback {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
   background: url(../../../assets/img/Group\ 74.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -399,7 +411,9 @@ h2 {
   background: #0b153c;
 }
 .wrapper__vaccine-registration {
-  background: url(<path-to-image>), lightgray 50%/cover no-repeat, rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.5);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .header {
@@ -583,14 +597,22 @@ h2 {
   padding-bottom: 4rem;
   gap: 2rem;
 }
+.get-vaccinated__content h2 {
+  text-align: center;
+}
 .get-vaccinated__box.special {
   border-radius: 20px 80px 20px 20px;
   background: rgba(196, 196, 196, 0.2);
+  display: grid;
+  row-gap: 1rem;
+  border: none;
 }
 .get-vaccinated__box {
   padding: 2rem;
   border-radius: 49.896px;
   border: 2.994px solid rgba(255, 255, 255, 0.5);
+  display: grid;
+  row-gap: 2rem;
 }
 .get-vaccinated__flex1 {
   display: flex;
@@ -604,6 +626,9 @@ h2 {
 }
 
 @media only screen and (min-width: 768px) {
+  .get-vaccinated__content {
+    text-align: left;
+  }
   .get-vaccinated__flex1 {
     display: flex;
     flex-direction: column;
@@ -623,6 +648,9 @@ h2 {
   }
   .get-vaccinated__content h1 {
     width: 50%;
+  }
+  .get-vaccinated__flex1 {
+    flex-direction: row;
   }
 }
 button {
@@ -664,6 +692,8 @@ button.outlined {
   background-image: url(../../../assets/img/vaccineregistration.png);
   background-repeat: no-repeat;
   height: 30rem;
+  padding-right: 0;
+  width: 26rem;
   max-width: 100%;
 }
 .registration__select-option {
@@ -679,12 +709,19 @@ button.outlined {
 .registration__verify {
   background-color: transparent;
   color: white;
-  padding: 3rem;
+  padding: 3rem 0 0 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 13rem;
   width: fit-content;
+}
+.registration__verify button {
+  border-radius: 10px;
+  border: none;
+  color: white;
+  background: rgba(196, 196, 196, 0.25);
+  padding: 1rem 5rem 1rem 5rem;
 }
 .registration__form input {
   border-radius: 10px;
@@ -731,6 +768,12 @@ button.outlined {
     flex-direction: row-reverse;
     gap: 16rem;
   }
+}
+.feedback {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 .feedback__container {
   display: grid;

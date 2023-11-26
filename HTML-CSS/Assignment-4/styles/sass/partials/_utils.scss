@@ -22,6 +22,11 @@
 .background-skyblue {
   background-color: #0b153c;
 }
+.icon-border {
+  border-radius: 10px;
+  background: rgba(196, 196, 196, 0.15);
+  padding: 0.75rem;
+}
 .wrapper {
   &__symptoms {
     background: #0b153c;
@@ -49,11 +54,13 @@
   }
   &__get-vaccinated {
     background: #0b153c;
-    padding-top: 8rem;
-    padding-bottom: 8rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
     color: white;
   }
   &__feedback {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
     background: url(../../../assets/img/Group\ 74.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -62,7 +69,8 @@
     background: #0b153c;
   }
   &__vaccine-registration {
-    background: url(<path-to-image>), lightgray 50% / cover no-repeat,
-      rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.5);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 }
