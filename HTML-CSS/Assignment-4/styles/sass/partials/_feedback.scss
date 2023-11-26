@@ -1,0 +1,32 @@
+.feedback {
+  &__container {
+    display: grid;
+    grid-template-columns: auto;
+    row-gap: 2rem;
+    justify-content: center;
+  }
+  &__card {
+    border-radius: 20px;
+    background: rgba(196, 196, 196, 0.5);
+    padding: 2.5rem;
+    max-width: 20rem;
+  }
+  &__patient_info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .feedback {
+    &__container {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      column-gap: 2rem;
+    }
+    &__card {
+      border-radius: 20px;
+      background: rgba(196, 196, 196, 0.5);
+    }
+  }
+}

@@ -2,6 +2,8 @@
   &__content {
     display: flex;
     flex-direction: column;
+    padding-bottom: 4rem;
+    gap: 2rem;
   }
   &__box.special {
     border-radius: 20px 80px 20px 20px;
@@ -12,7 +14,18 @@
     border-radius: 49.896px;
     border: 2.994px solid rgba(255, 255, 255, 0.5);
   }
+  &__flex1 {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  &__flex2 {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
 }
+
 @media only screen and (min-width: 768px) {
   .get-vaccinated {
     &__flex1 {
@@ -22,6 +35,7 @@
     }
     &__flex2 {
       display: flex;
+      flex-direction: row;
       gap: 4rem;
     }
   }
@@ -29,8 +43,13 @@
 
 @media only screen and (min-width: 992px) {
   .get-vaccinated {
-    &__flex1 {
+    &__content {
+      display: flex;
       flex-direction: row;
+      gap: 5rem;
+      h1 {
+        width: 50%;
+      }
     }
   }
 }

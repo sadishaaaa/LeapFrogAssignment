@@ -349,6 +349,14 @@ h2 {
   color: #17c2ec;
 }
 
+.white {
+  color: #fff;
+}
+
+.grey {
+  color: rgba(255, 255, 255, 0.5);
+}
+
 .background-skyblue {
   background-color: #0b153c;
 }
@@ -375,13 +383,17 @@ h2 {
 .wrapper__covidResult {
   background: #0b153c;
   padding-top: 8rem;
-  padding-bottom: 8rem;
 }
 .wrapper__get-vaccinated {
   background: #0b153c;
   padding-top: 8rem;
   padding-bottom: 8rem;
   color: white;
+}
+.wrapper__feedback {
+  background: url(../../../assets/img/Group\ 74.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .wrapper__footer {
   background: #0b153c;
@@ -568,6 +580,8 @@ h2 {
 .get-vaccinated__content {
   display: flex;
   flex-direction: column;
+  padding-bottom: 4rem;
+  gap: 2rem;
 }
 .get-vaccinated__box.special {
   border-radius: 20px 80px 20px 20px;
@@ -578,6 +592,16 @@ h2 {
   border-radius: 49.896px;
   border: 2.994px solid rgba(255, 255, 255, 0.5);
 }
+.get-vaccinated__flex1 {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.get-vaccinated__flex2 {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
 
 @media only screen and (min-width: 768px) {
   .get-vaccinated__flex1 {
@@ -587,12 +611,18 @@ h2 {
   }
   .get-vaccinated__flex2 {
     display: flex;
+    flex-direction: row;
     gap: 4rem;
   }
 }
 @media only screen and (min-width: 992px) {
-  .get-vaccinated__flex1 {
+  .get-vaccinated__content {
+    display: flex;
     flex-direction: row;
+    gap: 5rem;
+  }
+  .get-vaccinated__content h1 {
+    width: 50%;
   }
 }
 button {
@@ -614,11 +644,27 @@ button.outlined {
   outline-color: #17c2ec;
 }
 
+.symptoms {
+  padding-top: 4rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.symptoms__img {
+  padding-top: 2rem;
+}
+.symptoms__img img {
+  padding: 0;
+  width: 50rem;
+  max-width: 100%;
+}
+
 .registration__vaccine {
   background-image: url(../../../assets/img/vaccineregistration.png);
   background-repeat: no-repeat;
   height: 30rem;
-  width: 22rem;
+  max-width: 100%;
 }
 .registration__select-option {
   display: flex;
@@ -684,6 +730,105 @@ button.outlined {
     display: flex;
     flex-direction: row-reverse;
     gap: 16rem;
+  }
+}
+.feedback__container {
+  display: grid;
+  grid-template-columns: auto;
+  row-gap: 2rem;
+  justify-content: center;
+}
+.feedback__card {
+  border-radius: 20px;
+  background: rgba(196, 196, 196, 0.5);
+  padding: 2.5rem;
+  max-width: 20rem;
+}
+.feedback__patient_info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+@media screen and (min-width: 992px) {
+  .feedback__container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 2rem;
+  }
+  .feedback__card {
+    border-radius: 20px;
+    background: rgba(196, 196, 196, 0.5);
+  }
+}
+.footer {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 2rem;
+}
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  gap: 0.5rem;
+}
+.footer__links li {
+  list-style-type: none;
+}
+.footer__links li a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+}
+.footer__quote {
+  background-color: #17c2ec;
+  color: white;
+  position: absolute;
+  text-align: center;
+  padding: 2rem;
+  width: 50%;
+  margin-top: -43vw;
+  margin-left: 20%;
+  border-radius: 50px;
+}
+.footer__email {
+  display: flex;
+  border-radius: 50px;
+  justify-content: center;
+}
+.footer__email input {
+  background-color: #fff;
+}
+.footer__email div {
+  background-color: #0b153c;
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    gap: 2rem;
+  }
+  .footer__links {
+    flex-direction: row;
+    gap: 2rem;
+  }
+  .footer__quote {
+    background-color: #17c2ec;
+    color: white;
+    position: absolute;
+    text-align: center;
+    padding: 2rem;
+    width: 50%;
+    margin-top: -43vw;
+    margin-left: 20%;
+    border-radius: 50px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 }
 

@@ -13,6 +13,12 @@
 .skyblue {
   color: #17c2ec;
 }
+.white {
+  color: #fff;
+}
+.grey {
+  color: rgba(255, 255, 255, 0.5);
+}
 .background-skyblue {
   background-color: #0b153c;
 }
@@ -40,7 +46,6 @@
   &__covidResult {
     background: #0b153c;
     padding-top: 8rem;
-    padding-bottom: 8rem;
   }
   &__get-vaccinated {
     background: #0b153c;
@@ -48,10 +53,16 @@
     padding-bottom: 8rem;
     color: white;
   }
+  &__feedback {
+    background: url(../../../assets/img/Group\ 74.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
   &__footer {
     background: #0b153c;
   }
-  &__vaccine-registration{
-    background: url(<path-to-image>), lightgray 50% / cover no-repeat, rgba(255, 255, 255, 0.50);
+  &__vaccine-registration {
+    background: url(<path-to-image>), lightgray 50% / cover no-repeat,
+      rgba(255, 255, 255, 0.5);
   }
 }

@@ -16,6 +16,15 @@
 
     <!-- Linking CSS file in this page -->
     <link rel="stylesheet" href="./styles/style.css" />
+    <style>
+    
+.page1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "overlap";
+}
+    </style>
 
 <!-- Iconify link -->
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
@@ -313,14 +322,17 @@
       <!-- Covid Symptoms section -->
       <div class="wrapper__symptoms">
         <div class="container symptoms">
-          <h2>Covid-19 Prevention</h2>
-          <h1><span class="skyblue">COVID-19</span> Symptoms</h1>
-          <p>
+          <h2 class="white">Covid-19 Prevention</h2>
+          <h1 class="white"><span class="skyblue">COVID-19</span> Symptoms</h1>
+          <p class="grey">
             Adipiscing nec etiam tortor elit quisque. Arcu aliquet convallis
             aenean eu velit. Mi vestibulum, ullamcorper venenatis imperdiet
             augue arcu donec neque.
           </p>
-          <img src="./assets/img/symptoms.svg" alt="" />
+          <div class="symptoms__img">
+            <img src="./assets/img/symptoms.svg" alt="" />
+          </div>
+        
         </div>
       </div>
       <!-- feedback section -->
@@ -339,10 +351,12 @@
                 <div class="feedback__patient_img">
                   <img src="./assets/img/patient1.png" alt="Image of patient" />
                 </div>
-                <div class="feedback__details">
-                  <h3>Oyindamola Maja</h3>
+                <div class="feedback__personal_details">
+                  <b>Sadisha shrestha</b><br>
                   <span>Badagry, Lagos</span>
                 </div>
+              </div>
+              <div class="feedback__feedback">
                 <p>
                   “Been stressing about a close centre to get the covid-19
                   vaccine, until i tried Vaccination.ng”
@@ -354,10 +368,12 @@
                 <div class="feedback__patient_img">
                   <img src="./assets/img/patient1.png" alt="Image of patient" />
                 </div>
-                <div class="feedback__details">
-                  <h3>Oyindamola Maja</h3>
+                <div class="feedback__personal_details">
+                  <b>Sadisha shrestha</b><br>
                   <span>Badagry, Lagos</span>
                 </div>
+              </div>
+              <div class="feedback__feedback">
                 <p>
                   “Been stressing about a close centre to get the covid-19
                   vaccine, until i tried Vaccination.ng”
@@ -369,10 +385,12 @@
                 <div class="feedback__patient_img">
                   <img src="./assets/img/patient1.png" alt="Image of patient" />
                 </div>
-                <div class="feedback__details">
-                  <h3>Oyindamola Maja</h3>
+                <div class="feedback__personal_details">
+                  <b>Sadisha shrestha</b><br>
                   <span>Badagry, Lagos</span>
                 </div>
+              </div>
+              <div class="feedback__feedback">
                 <p>
                   “Been stressing about a close centre to get the covid-19
                   vaccine, until i tried Vaccination.ng”
@@ -383,23 +401,36 @@
         </div>
       </div>
       <div class="wrapper__footer">
+        <!-- <div class="footer__quote">
+        <h3>Get a quote</h3>
+          <p>
+            Please do enter your email address below
+          </p>
+          <div class="footer__email">
+            <input type="text" placeholder="sadisha123@lft.com">
+            <div>
+              <span class="iconify" data-icon="ion:paper-plane-outline"></span>
+            </div>
+          </div>
+
+        </div> -->
         <footer class="footer container">
           <div class="logo">
             <img src="./assets/img/logo.svg" alt="logo of website" />
           </div>
-          <div class="footer__links">
-            <ul>
+          <div>
+            <ul class="footer__links">
               <li>
-                <a href="#">Home</a>
+                <a class="footer__item" href="#">Home</a>
               </li>
               <li>
-                <a href="#">Services</a>
+                <a class="footer__item" href="#">Services</a>
               </li>
               <li>
-                <a href="#">Schedule</a>
+                <a class="footer__item" href="#">Schedule</a>
               </li>
               <li>
-                <a href="#">Contact us</a>
+                <a class="footer__item" href="#">Contact us</a>
               </li>
             </ul>
           </div>
