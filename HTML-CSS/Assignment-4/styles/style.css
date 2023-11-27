@@ -400,7 +400,8 @@ a {
 }
 .wrapper__covidResult {
   background: #0b153c;
-  padding-top: 8rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 .wrapper__get-vaccinated {
   background: #0b153c;
@@ -713,9 +714,10 @@ button.outlined {
 }
 
 .registration__vaccine {
-  background-image: url(../../../assets/img/vaccineregistration.png);
+  background-image: url(../assets/img/vaccineregistration.png);
   background-repeat: no-repeat;
   height: 30rem;
+  margin-top: 1rem;
   padding-right: 0;
   width: 26rem;
   max-width: 100%;
