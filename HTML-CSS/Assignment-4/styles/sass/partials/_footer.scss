@@ -20,12 +20,9 @@
   &__quote {
     background-color: #17c2ec;
     color: white;
-    position: absolute;
     text-align: center;
     padding: 2rem;
     width: 50%;
-    margin-top: -43vw;
-    margin-left: 20%;
     border-radius: 50px;
   }
   &__email {
@@ -34,11 +31,21 @@
     justify-content: center;
     input {
       background-color: #fff;
+      border-radius: 20px 0 0 20px;
+      border: none;
+      padding: 0.5rem;
     }
     div {
       background-color: #0b153c;
+      border-radius: 0 20px 20px 0;
+      padding: 0.5rem;
     }
   }
+}
+.quote_wrapper {
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
 }
 
 @media screen and (min-width: 768px) {
@@ -51,13 +58,10 @@
     &__quote {
       background-color: #17c2ec;
       color: white;
-      position: absolute;
+
       text-align: center;
       padding: 2rem;
       width: 50%;
-      margin-top: -43vw;
-      margin-left: 20%;
-      border-radius: 50px;
     }
   }
 }

@@ -361,6 +361,10 @@ a {
   color: rgba(255, 255, 255, 0.5);
 }
 
+.grey-1 {
+  color: rgba(0, 0, 0, 0.5);
+}
+
 .background-skyblue {
   background-color: #0b153c;
 }
@@ -369,6 +373,10 @@ a {
   border-radius: 10px;
   background: rgba(196, 196, 196, 0.15);
   padding: 0.75rem;
+}
+
+.sky-blue_border {
+  border: 2px solid #17c2ec !important;
 }
 
 .wrapper__symptoms {
@@ -401,8 +409,8 @@ a {
   color: white;
 }
 .wrapper__feedback {
-  padding-top: 3rem;
-  padding-bottom: 2rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
   background: url(../../../assets/img/Group\ 74.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -606,6 +614,11 @@ a {
   display: grid;
   row-gap: 1rem;
   border: none;
+  width: fit-content;
+}
+.get-vaccinated__box.normal {
+  width: 15rem;
+  height: 15rem;
 }
 .get-vaccinated__box {
   padding: 2rem;
@@ -618,6 +631,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  align-self: start;
 }
 .get-vaccinated__flex2 {
   display: flex;
@@ -634,6 +648,9 @@ a {
     flex-direction: column;
     gap: 4rem;
   }
+  .get-vaccinated__box.special {
+    width: 60%;
+  }
   .get-vaccinated__flex2 {
     display: flex;
     flex-direction: row;
@@ -649,8 +666,15 @@ a {
   .get-vaccinated__content h1 {
     width: 50%;
   }
+  .get-vaccinated__box.special {
+    width: 20%;
+  }
   .get-vaccinated__flex1 {
     flex-direction: row;
+    justify-content: center;
+  }
+  .get-vaccinated__flex2 {
+    align-items: end;
   }
 }
 button {
@@ -793,6 +817,11 @@ button.outlined {
   gap: 1.5rem;
 }
 
+#special {
+  background: #17C2EC;
+  color: #fff;
+}
+
 @media screen and (min-width: 992px) {
   .feedback__container {
     display: grid;
@@ -827,12 +856,9 @@ button.outlined {
 .footer__quote {
   background-color: #17c2ec;
   color: white;
-  position: absolute;
   text-align: center;
   padding: 2rem;
   width: 50%;
-  margin-top: -43vw;
-  margin-left: 20%;
   border-radius: 50px;
 }
 .footer__email {
@@ -842,9 +868,20 @@ button.outlined {
 }
 .footer__email input {
   background-color: #fff;
+  border-radius: 20px 0 0 20px;
+  border: none;
+  padding: 0.5rem;
 }
 .footer__email div {
   background-color: #0b153c;
+  border-radius: 0 20px 20px 0;
+  padding: 0.5rem;
+}
+
+.quote_wrapper {
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
 }
 
 @media screen and (min-width: 768px) {
@@ -858,13 +895,9 @@ button.outlined {
   .footer__quote {
     background-color: #17c2ec;
     color: white;
-    position: absolute;
     text-align: center;
     padding: 2rem;
     width: 50%;
-    margin-top: -43vw;
-    margin-left: 20%;
-    border-radius: 50px;
   }
 }
 @media screen and (min-width: 992px) {

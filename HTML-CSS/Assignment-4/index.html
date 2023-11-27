@@ -16,17 +16,8 @@
 
     <!-- Linking CSS file in this page -->
     <link rel="stylesheet" href="./styles/style.css" />
-    <style>
-    
-.page1 {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: "overlap";
-}
-    </style>
 
-<!-- Iconify link -->
+    <!-- Iconify link -->
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
   </head>
   <body>
@@ -61,7 +52,7 @@
             <button class="dark">Check Status</button>
           </div>
           <!-- Burger Icon for mobile view -->
-          <div class="header__burger_icon icon-border">
+          <div class="header__burger_icon">
             <a href="#"
               ><img src="./assets/icons/burgerIcon.svg" alt="XYZ-corp"
             /></a>
@@ -96,11 +87,13 @@
               <br />
               <div class="home__btn">
                 <button class="home__active light">Get Vaccine</button>
-                <button class="dark outlined">Help Center</button>
+                <button class="dark outlined sky-blue_border">
+                  Help Center
+                </button>
               </div>
             </div>
             <!-- Home Image content -->
-            <div class="home__image_content icon-border">
+            <div class="home__image_content">
               <img src="./assets/img/home.svg" alt="" />
             </div>
           </div>
@@ -118,9 +111,9 @@
                 <img src="./assets/icons/map-pin.svg" alt="map-pin logo" />
               </div>
               <div class="home__info_detail">
-                <span class="home__info_title">Location</span>
-                <span class="home__info_title_content">
-                  Ikeja Lagos, Nigeria
+                <span class="home__info_title grey">Location</span>
+                <span class="home__info_title_content white">
+                  <b> Ikeja Lagos, Nigeria</b>
                 </span>
               </div>
             </div>
@@ -129,8 +122,10 @@
                 <img src="./assets/icons/calender.svg" alt="map-pin logo" />
               </div>
               <div class="home__info_detail">
-                <span class="home__info_title">Date</span>
-                <span class="home__info_title_content"> 25 Nov, 2023 </span>
+                <span class="home__info_title grey">Date</span>
+                <span class="home__info_title_content white">
+                  <b>25 Nov, 2023 </b></span
+                >
               </div>
             </div>
             <div class="home__info">
@@ -138,8 +133,10 @@
                 <img src="./assets/icons/shield.svg" alt="map-pin logo" />
               </div>
               <div class="home__info_detail">
-                <span class="home__info_title">Vaccine Type</span>
-                <span class="home__info_title_content"> Mordena </span>
+                <span class="home__info_title grey">Vaccine Type</span>
+                <span class="home__info_title_content white"
+                  ><b>Mordena </b>
+                </span>
               </div>
             </div>
             <div class="home__info_btn">
@@ -187,7 +184,7 @@
                 name="lname"
                 placeholder="NIK Number"
               /><br /><br />
-              <button class="covidResult__form-btn dark outlined" type="button">
+              <button class="covidResult__form-btn dark outlined sky-blue_border" type="button">
                 Check
               </button>
             </form>
@@ -215,9 +212,15 @@
             <div class="get-vaccinated__flex1">
               <div class="get-vaccinated__box special">
                 <div class="get-vaccinated__icon">
-                  <img src="assets/icons/shield.svg" alt="shield icon"  class="icon-border"/>
+                  <img
+                    src="assets/icons/shield.svg"
+                    alt="shield icon"
+                    class="icon-border"
+                  />
                 </div>
-                <h2 class="skyblue">Protects your immune system against viruses</h2>
+                <h2 class="skyblue">
+                  Protects your immune system against viruses
+                </h2>
                 <p>
                   Velit ut consectetur mauris, orci amet, faucibus. Sit turpis
                   fringilla ipsum pretium, dictum. Dolor eget vel nulla lorem
@@ -226,21 +229,29 @@
                 <a href=""><span class="skyblue">Read more -></span></a>
               </div>
               <div class="get-vaccinated__flex2">
-                <div class="get-vaccinated__box">
+                <div class="get-vaccinated__box normal">
                   <div class="get-vaccinated__icon">
-                    <img src="assets/icons/user.svg" alt="User icon" class="icon-border"/>
+                    <img
+                      src="assets/icons/user.svg"
+                      alt="User icon"
+                      class="icon-border"
+                    />
                   </div>
                   <h2>Minimize the spread of the Virus</h2>
-                 
-                  <span ><a href=""class="grey">Read more -></a></span>
+
+                  <span><a href="" class="grey">Read more -></a></span>
                 </div>
-                <div class="get-vaccinated__box">
+                <div class="get-vaccinated__box normal">
                   <div class="get-vaccinated__icon">
-                    <img src="assets/icons/thermometer.svg" alt="thermometer icon" class="icon-border" />
+                    <img
+                      src="assets/icons/thermometer.svg"
+                      alt="thermometer icon"
+                      class="icon-border"
+                    />
                   </div>
                   <h2>Protect yourself</h2>
-                  
-                  <span ><a href="" class="grey">Read more -></a></span>
+
+                  <span><a href="" class="grey">Read more -></a></span>
                 </div>
               </div>
             </div>
@@ -251,65 +262,68 @@
       <div class="wrapper__vaccine-registration">
         <div class="container registration">
           <h2>Get your vaccine registration today</h2>
-          <!-- <img src="./assets/img/Group 45.png" alt=""> -->
           <div class="registration__container">
-
-       
-            <div class=" container registration__vaccine">
+            <div class="container registration__vaccine">
               <div class="registration__verify">
-                  <h3>Covid-19  <br>Vaccine</h3>
-                  <button>Verify</button>
+                <h3>Covid-19 <br />Vaccine</h3>
+                <button>Verify</button>
               </div>
             </div>
             <div>
-          <form class="registration__form" style="padding-top: 2rem">
-            <label for="fname"><b>Patient's Full Name</b></label><br /> <br>
-            <input
-              type="text"
-              id="fname"
-              name="fname"
-              placeholder="Full name"
-            /><br /> <br>
-            <label for="mobile-no"><b>Mobile Number</b></label><br /> <br>
-            <span
-              >Notifications for appointment and reminders will be sent to this
-              provided number</span
-            >
-            <br>
-            <br>
-            <div class="registration__select-box">
-              <div class="registration__select-option">
-              
-                  <div class="registration__flag">
-                    <span class="iconify" data-icon="emojione-v1:flag-for-nigeria"></span>
-                    <span class="iconify" data-icon="iconamoon:arrow-down-2-duotone"></span>
+              <form class="registration__form" style="padding-top: 2rem">
+                <label for="fname"><b>Patient's Full Name</b></label
+                ><br />
+                <br />
+                <input
+                  type="text"
+                  id="fname"
+                  name="fname"
+                  placeholder="Full name"
+                /><br />
+                <br />
+                <label for="mobile-no"><b>Mobile Number</b></label
+                ><br />
+                <br />
+                <span
+                  >Notifications for appointment and reminders will be sent to
+                  this provided number</span
+                >
+                <br />
+                <br />
+                <div class="registration__select-box">
+                  <div class="registration__select-option">
+                    <div class="registration__flag">
+                      <span
+                        class="iconify"
+                        data-icon="emojione-v1:flag-for-nigeria"
+                      ></span>
+                      <span
+                        class="iconify"
+                        data-icon="iconamoon:arrow-down-2-duotone"
+                      ></span>
+                    </div>
+                    <input
+                      type="number"
+                      id="mobile-no"
+                      name="mobile-no"
+                      pattern="Phone number"
+                    />
                   </div>
-                  <input
-                type="number"
-                id="mobile-no"
-                name="mobile-no"
-                pattern="Phone number"
-              />
-                
-                
+                  <button class="verify light">Verify</button>
+                </div>
+                <br />
+              </form>
+              <br />
+              <br />
+              <button class="registration__submit light">Submit</button>
+              <br />
+              <div class="registration__footer">
+                <span>Already registered ?</span>
+                <span class="skyblue">Check your status</span>
               </div>
-              <button class="verify light">Verify</button>
             </div>
-            <br />
-  
-          </form>
-          <br>
-          <br>
-          <button class="registration__submit light">Submit</button>
-          <br>
-          <div class="registration__footer">
-            <span>Already registered ?</span>
-            <span class="skyblue">Check your status</span>
           </div>
         </div>
-      </div>
-      </div>
-      </div>
       </div>
       <!-- Covid Symptoms section -->
       <div class="wrapper__symptoms">
@@ -324,7 +338,6 @@
           <div class="symptoms__img">
             <img src="./assets/img/symptoms.svg" alt="" />
           </div>
-        
         </div>
       </div>
       <!-- feedback section -->
@@ -338,19 +351,38 @@
             augue arcu ue.
           </p>
           <div class="feedback__container">
+            <!-- Feedback Card -->
             <div class="feedback__card">
               <div class="feedback__patient_info">
                 <div class="feedback__patient_img">
                   <img src="./assets/img/patient1.png" alt="Image of patient" />
                 </div>
                 <div class="feedback__personal_details">
-                  <b>Sadisha shrestha</b><br>
-                  <span>Badagry, Lagos</span>
+                  <b>Sadisha shrestha</b><br />
+                  <b> <span class="grey-1">Badagry, Lagos</span></b>
                 </div>
               </div>
               <div class="feedback__feedback">
                 <p>
-                  “Been stressing about a close centre to get the covid-19
+                  “Been stressing about a close centre to get the <span class="skyblue">covid-19</span>
+                  vaccine, until i tried Vaccination.ng”
+                </p>
+              </div>
+            </div>
+            <div class="feedback__card" id="special">
+              <div class="feedback__patient_info">
+                <div class="feedback__patient_img">
+                  <img src="./assets/img/patient1.png" alt="Image of patient" />
+                </div>
+                <div class="feedback__personal_details">
+                  <b>Sadisha shrestha</b><br />
+                  <b><span>Badagry, Lagos</span></b>
+                </div>
+              </div>
+              <div class="feedback__feedback">
+                <p>
+                  “Been stressing about a close centre to get the
+                 
                   vaccine, until i tried Vaccination.ng”
                 </p>
               </div>
@@ -361,30 +393,14 @@
                   <img src="./assets/img/patient1.png" alt="Image of patient" />
                 </div>
                 <div class="feedback__personal_details">
-                  <b>Sadisha shrestha</b><br>
-                  <span>Badagry, Lagos</span>
+                  <b>Sadisha shrestha</b><br />
+                  <span class="grey-1"><b>Badagry, Lagos</b></span>
                 </div>
               </div>
               <div class="feedback__feedback">
                 <p>
-                  “Been stressing about a close centre to get the covid-19
-                  vaccine, until i tried Vaccination.ng”
-                </p>
-              </div>
-            </div>
-            <div class="feedback__card">
-              <div class="feedback__patient_info">
-                <div class="feedback__patient_img">
-                  <img src="./assets/img/patient1.png" alt="Image of patient" />
-                </div>
-                <div class="feedback__personal_details">
-                  <b>Sadisha shrestha</b><br>
-                  <span>Badagry, Lagos</span>
-                </div>
-              </div>
-              <div class="feedback__feedback">
-                <p>
-                  “Been stressing about a close centre to get the covid-19
+                  “Been stressing about a close centre to get the
+                  <span class="skyblue">covid-19</span>
                   vaccine, until i tried Vaccination.ng”
                 </p>
               </div>
@@ -392,20 +408,23 @@
           </div>
         </div>
       </div>
+
       <div class="wrapper__footer">
-        <!-- <div class="footer__quote">
-        <h3>Get a quote</h3>
-          <p>
-            Please do enter your email address below
-          </p>
-          <div class="footer__email">
-            <input type="text" placeholder="sadisha123@lft.com">
-            <div>
-              <span class="iconify" data-icon="ion:paper-plane-outline"></span>
+        <div class="quote_wrapper">
+          <div class="footer__quote">
+            <h3>Get a quote</h3>
+            <p>Please do enter your email address below</p>
+            <div class="footer__email">
+              <input type="text" placeholder="sadisha123@lft.com" />
+              <div>
+                <span
+                  class="iconify"
+                  data-icon="ion:paper-plane-outline"
+                ></span>
+              </div>
             </div>
           </div>
-
-        </div> -->
+        </div>
         <footer class="footer container">
           <div class="logo">
             <img src="./assets/img/logo.svg" alt="logo of website" />

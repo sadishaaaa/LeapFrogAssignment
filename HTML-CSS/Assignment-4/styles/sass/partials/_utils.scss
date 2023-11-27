@@ -19,6 +19,9 @@
 .grey {
   color: rgba(255, 255, 255, 0.5);
 }
+.grey-1 {
+  color: rgba(0, 0, 0, 0.5);
+}
 .background-skyblue {
   background-color: #0b153c;
 }
@@ -26,6 +29,9 @@
   border-radius: 10px;
   background: rgba(196, 196, 196, 0.15);
   padding: 0.75rem;
+}
+.sky-blue_border {
+  border: 2px solid #17c2ec !important;
 }
 .wrapper {
   &__symptoms {
@@ -59,8 +65,8 @@
     color: white;
   }
   &__feedback {
-    padding-top: 3rem;
-    padding-bottom: 2rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
     background: url(../../../assets/img/Group\ 74.png);
     background-repeat: no-repeat;
     background-size: cover;

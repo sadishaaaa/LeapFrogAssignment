@@ -14,12 +14,17 @@
     background: rgba(196, 196, 196, 0.5);
     padding: 2.5rem;
     max-width: 20rem;
+    
   }
   &__patient_info {
     display: flex;
     align-items: center;
     gap: 1.5rem;
   }
+}
+#special{
+  background: #17C2EC;
+  color:#fff ;
 }
 @media screen and (min-width: 992px) {
   .feedback {
