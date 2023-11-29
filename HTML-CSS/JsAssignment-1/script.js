@@ -14,6 +14,7 @@ function changeTab(tabId) {
   document.getElementById(tabId + "Tab").classList.add("active");
 }
 
+//to add task
 function addTask() {
   const title = document.getElementById("title").value;
   const description = document.getElementById("description").value;
@@ -31,7 +32,7 @@ function addTask() {
     displayCompletedTasks();
   }
 }
-
+// to display task
 function displayTask(task, listId, isChecked) {
   const taskList = document.getElementById(listId);
   const taskItem = document.createElement("li");
@@ -50,6 +51,7 @@ function displayTask(task, listId, isChecked) {
   taskList.appendChild(taskItem);
 }
 
+// function for complete task
 function completeTask(checkbox, index) {
   const task = tasks[index];
   if (checkbox.checked) {
@@ -60,7 +62,7 @@ function completeTask(checkbox, index) {
     displayRemainingTasks();
   }
 }
-
+// uncheck the check box
 function uncompleteTask(checkbox, index) {
   const task = completedTasks[index];
   if (!checkbox.checked) {
@@ -72,6 +74,7 @@ function uncompleteTask(checkbox, index) {
   }
 }
 
+// display remaiing task
 function displayRemainingTasks() {
   const remainingTasksList = document.getElementById("remainingTasksList");
   remainingTasksList.innerHTML = "";
@@ -81,6 +84,7 @@ function displayRemainingTasks() {
   });
 }
 
+// display completed task
 function displayCompletedTasks() {
   const completedTasksList = document.getElementById("completedTasksList");
   completedTasksList.innerHTML = "";
@@ -90,6 +94,7 @@ function displayCompletedTasks() {
   });
 }
 
+// serach task
 function searchTasks(tabId) {
   const searchInputId = `${tabId}Search`;
   const searchTerm = document.getElementById(searchInputId).value.toLowerCase();
