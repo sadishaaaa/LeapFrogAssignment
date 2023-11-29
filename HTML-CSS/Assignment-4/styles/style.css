@@ -719,7 +719,7 @@ button.outlined {
   height: 30rem;
   margin-top: 1rem;
   padding-right: 0;
-  width: 26rem;
+  width: 29rem;
   max-width: 100%;
 }
 .registration__select-option {
@@ -793,6 +793,9 @@ button.outlined {
     display: flex;
     flex-direction: row-reverse;
     gap: 16rem;
+  }
+  .registration__verify {
+    padding: 4rem 0 0 4rem;
   }
 }
 .feedback {
