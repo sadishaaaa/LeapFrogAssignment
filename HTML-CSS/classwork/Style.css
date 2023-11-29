@@ -1,0 +1,13 @@
+#circle {
+  width: 500px;
+  height: 500px;
+  border: 1px solid black;
+  position: relative;
+}
+.circle {
+  background-color: aquamarine;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+}
