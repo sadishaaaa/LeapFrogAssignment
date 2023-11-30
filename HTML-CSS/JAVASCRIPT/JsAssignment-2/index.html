@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- meta tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Title of this project -->
+    <title>Carousel</title>
+
+    <!-- Linking styles to this file -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Carousel container-->
+    <div class="carousel-container">
+      <!-- Images -->
+      <div class="carousel-imgs">
+        <img src="./Img/img1.jpg" class="carousel-img visible" />
+        <img src="./Img/img2.jpg" class="carousel-img hidden" />
+        <img src="./Img/img3.jpg" class="carousel-img hidden" />
+      </div>
+      <!-- Buttons -->
+      <a class="prev arrow">&#10094;</a>
+      <a class="next arrow">&#10095;</a>
+
+      <!--  Div container for dynamic dots -->
+      <div class="slide-dots"></div>
+    </div>
+    <!-- Titles of the Images -->
+    <div class="carousel-titles">
+      <p class="carousel-title visible">Image 1</p>
+      <p class="carousel-title hidden">Image 2</p>
+      <p class="carousel-title hidden">Image 3</p>
+    </div>
+
+    <!-- Linking script file to this file -->
+    <script src="./script.js"></script>
+  </body>
+</html>
