@@ -8,6 +8,7 @@ class Ball {
     this.element = document.createElement("div");
     this.element.style.width = this.r * 2 + "px";
     this.element.style.height = this.r * 2 + "px";
+    this.element.style.backgroundColor = getRandomColor();
     this.element.classList.add("ball");
   }
   getElement() {
@@ -56,8 +57,15 @@ class Ball {
     if (dist <= sumOfRadius) {
       this.dx = -this.dx;
       this.dy = -this.dy;
-      ball.dx = ball.dx;
-      ball.dy = ball.dy;
+      // ball.dx = ball.dx;
+      // ball.dy = ball.dy;
+      let penetration = sumOfRadius - dist;
+      const penetrationX = ((this.x - ball.x) / dist) * penetration * 0.5;
+      const penetrationY = ((this.y - ball.y) / dist) * penetration * 0.5;
+      this.x += penetrationX;
+      this.y += penetrationY;
+      ball.x -= penetrationX;
+      ball.y == penetrationY;
     }
   };
 }
