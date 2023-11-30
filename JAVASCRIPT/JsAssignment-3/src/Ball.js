@@ -22,12 +22,12 @@ class Ball {
   setY = () => {
     this.y = y;
   };
-  // ?move ball towards the direction
+  // move ball towards the direction
   move = () => {
     this.x += this.dx * SPEED;
     this.y += this.dy * SPEED;
   };
-  //   ypdate position of the ball element
+  //   update position of the ball element
   draw = () => {
     this.element.style.left = this.x + "px";
     this.element.style.top = this.y + "px";
@@ -45,7 +45,7 @@ class Ball {
         this.x <= boundaryLeft ? boundaryLeft : boundaryWidth - this.r * 2;
     }
     if (this.y < boundaryTop || this.y + this.r * 2 > boundaryHeight) {
-      this.dy *= -1;
+      // this.dy *= -1;
       this.dy = -this.dy;
       this.y =
         this.y <= boundaryTop ? boundaryTop : boundaryHeight - this.r * 2;
@@ -55,10 +55,16 @@ class Ball {
     const dist = distance(this.x, this.y, ball.x, ball.y);
     const sumOfRadius = this.r + ball.r;
     if (dist <= sumOfRadius) {
-      this.dx = -this.dx;
-      this.dy = -this.dy;
+      // this.dx = -this.dx;
+      // this.dy = -this.dy;
       // ball.dx = ball.dx;
       // ball.dy = ball.dy;
+      const tx = this.dx;
+      const ty = this.dy;
+      this.dx = ball.dx;
+      this.dy = ball.dy;
+      ball.dx = tx;
+      ball.dy=ty;
       let penetration = sumOfRadius - dist;
       const penetrationX = ((this.x - ball.x) / dist) * penetration * 0.5;
       const penetrationY = ((this.y - ball.y) / dist) * penetration * 0.5;
@@ -68,4 +74,6 @@ class Ball {
       ball.y == penetrationY;
     }
   };
+  
+  
 }

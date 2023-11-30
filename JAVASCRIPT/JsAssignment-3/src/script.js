@@ -9,12 +9,14 @@ for (let i = 0; i < BALL_COUNT; i++) {
   ball.element.style.height = r * 2 + "px";
   ballsArray.push(ball);
 }
+
 //add balls in viewport
 ballsArray.forEach((ball) => {
   viewport.appendChild(ball.getElement());
 });
-// new Date();
-//
+
+
+//render the ball in the screen
 function render() {
   ballsArray.forEach((ball) => {
     ball.draw();

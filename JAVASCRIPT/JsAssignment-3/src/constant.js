@@ -1,10 +1,8 @@
 const BALL_COUNT = 100;
-const SPEED = 5;
+const SPEED = 4;
 const VIEWPORT_WIDTH = 1000;
 const VIEWPORT_HEIGHT = 1000;
-// const BALL_WIDTH = 10;
-// const BALL_HEIGHT = 10;
 const MIN_WIDTH = 20;
 const MIN_HEIGHT = 20;
-const MIN_RADIUS = 8;
-const MAX_RADIUS = 20;
+const MIN_RADIUS = 10;
+const MAX_RADIUS = 18;
