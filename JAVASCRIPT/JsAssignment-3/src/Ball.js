@@ -59,12 +59,13 @@ class Ball {
       // this.dy = -this.dy;
       // ball.dx = ball.dx;
       // ball.dy = ball.dy;
+      // swapping values
       const tx = this.dx;
       const ty = this.dy;
       this.dx = ball.dx;
       this.dy = ball.dy;
       ball.dx = tx;
-      ball.dy=ty;
+      ball.dy = ty;
       let penetration = sumOfRadius - dist;
       const penetrationX = ((this.x - ball.x) / dist) * penetration * 0.5;
       const penetrationY = ((this.y - ball.y) / dist) * penetration * 0.5;
@@ -74,6 +75,4 @@ class Ball {
       ball.y == penetrationY;
     }
   };
-  
-  
 }

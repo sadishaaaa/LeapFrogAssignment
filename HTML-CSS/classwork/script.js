@@ -19,7 +19,7 @@ class Point {
 function getRandom(min = 0, max = 0) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 30; i++) {
   const point = new Point(getRandom(0, 490), getRandom(0, 490));
 
   point.draw();
