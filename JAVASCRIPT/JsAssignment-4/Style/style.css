@@ -1,3 +1,7 @@
-body{
-    background: black;
+body {
+  text-align: center;
+}
+
+#viewport {
+  background-image: url("../Assets/Img/doodlejumpbg.png");
 }
