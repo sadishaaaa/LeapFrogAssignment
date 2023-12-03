@@ -1,28 +1,22 @@
-/**
- * DoodleJumpGame Class
- *
- * This class represents the implementation of the Doodle Jump game. It encapsulates
- * the game's state, rendering, and logic. The game features a doodler that can move
- * left and right, jump on platforms, and accumulates scores. The game ends when the
- * doodler falls off the bottom of the viewport. Players can restart the game by
- * pressing the 'Space' key.
- */
 class DoodleJumpGame {
-  // Constructor to initialize properties and set default values
   constructor() {
-    // Canvas and board dimensions
+    // Board dimensions
     this.board = null;
     this.boardWidth = 360;
     this.boardHeight = 576;
     this.context = null;
 
-    // Doodler properties
+    // Doodler dimensions and initial position
     this.doodlerWidth = 46;
     this.doodlerHeight = 46;
     this.doodlerX = this.boardWidth / 2 - this.doodlerWidth / 2;
     this.doodlerY = (this.boardHeight * 7) / 8 - this.doodlerHeight;
+
+    // Doodler images
     this.doodlerRightImg = null;
     this.doodlerLeftImg = null;
+
+    // Doodler object
     this.doodler = {
       img: null,
       x: this.doodlerX,
@@ -31,27 +25,30 @@ class DoodleJumpGame {
       height: this.doodlerHeight,
     };
 
-    // Doodler movement properties
+    // Physics properties
     this.velocityX = 0;
     this.velocityY = 0;
     this.initialVelocityY = -8;
     this.gravity = 0.4;
 
-    // Platforms properties
+    // Platforms
     this.platformArray = [];
     this.platformWidth = 60;
     this.platformHeight = 18;
     this.platformImg = null;
 
-    // Scoring and game state
+    // Score and game state
     this.score = 0;
     this.maxScore = 0;
     this.gameOver = false;
-    //  for tilt controls sensitivity
+
+    // Tilt controls sensitivity
     this.tiltThreshold = 5;
+
+    // Bind methods to ensure 'this' refers to the class instance
+    this.handleOrientation = this.handleOrientation.bind(this);
   }
 
-  // Initialize the game, set up canvas, images, and event listeners
   initialize() {
     this.board = document.getElementById("viewport");
     this.board.height = this.boardHeight;
@@ -81,9 +78,37 @@ class DoodleJumpGame {
     this.placePlatforms();
     requestAnimationFrame(() => this.update());
     document.addEventListener("keydown", (e) => this.moveDoodler(e));
+
+    // Check if the device supports orientation events
+    if (window.DeviceOrientationEvent) {
+      // Add event listener for device orientation changes
+      window.addEventListener("deviceorientation", (event) =>
+        this.handleOrientation(event)
+      );
+    } else {
+      // Provide a message if orientation events are not supported
+      console.log("Device orientation not supported.");
+    }
   }
 
-  // Main game loop responsible for updating and rendering game elements
+  handleOrientation(event) {
+    // Ensure that the event has the beta property (tilt left/right)
+    if (event.beta !== null) {
+      // Use the beta value to determine the tilt direction
+      // Adjust the velocityX accordingly to move the doodler left or right
+      if (event.beta < -this.tiltThreshold) {
+        this.velocityX = -4;
+        this.doodler.img = this.doodlerLeftImg;
+      } else if (event.beta > this.tiltThreshold) {
+        this.velocityX = 4;
+        this.doodler.img = this.doodlerRightImg;
+      } else {
+        // If the tilt is within the threshold, stop the doodler
+        this.velocityX = 0;
+      }
+    }
+  }
+
   update() {
     requestAnimationFrame(() => this.update());
     if (this.gameOver) {
@@ -150,7 +175,6 @@ class DoodleJumpGame {
     }
   }
 
-  // Handles keyboard input to move the doodler and restart the game
   moveDoodler(e) {
     if (e.code == "ArrowRight" || e.code == "KeyD") {
       this.velocityX = 4;
@@ -159,24 +183,10 @@ class DoodleJumpGame {
       this.velocityX = -4;
       this.doodler.img = this.doodlerLeftImg;
     } else if (e.code == "Space" && this.gameOver) {
-      this.doodler = {
-        img: this.doodlerRightImg,
-        x: this.doodlerX,
-        y: this.doodlerY,
-        width: this.doodlerWidth,
-        height: this.doodlerHeight,
-      };
-
-      this.velocityX = 0;
-      this.velocityY = this.initialVelocityY;
-      this.score = 0;
-      this.maxScore = 0;
-      this.gameOver = false;
-      this.placePlatforms();
+      this.resetGame();
     }
   }
 
-  // Places initial platforms for the game
   placePlatforms() {
     this.platformArray = [];
 
@@ -204,7 +214,6 @@ class DoodleJumpGame {
     }
   }
 
-  // Generates a new platform to replace those that have moved off-screen
   newPlatform() {
     let randomX = Math.floor((Math.random() * this.boardWidth * 3) / 4);
     let platform = {
@@ -218,7 +227,6 @@ class DoodleJumpGame {
     this.platformArray.push(platform);
   }
 
-  // Checks for collision between two objects a and b
   detectCollision(a, b) {
     return (
       a.x < b.x + b.width &&
@@ -228,7 +236,6 @@ class DoodleJumpGame {
     );
   }
 
-  // Updates the player's score based on the doodler's vertical movement
   updateScore() {
     let points = Math.floor(50 * Math.random());
     if (this.velocityY < 0) {
@@ -239,6 +246,23 @@ class DoodleJumpGame {
     } else if (this.velocityY >= 0) {
       this.maxScore -= points;
     }
+  }
+
+  resetGame() {
+    this.doodler = {
+      img: this.doodlerRightImg,
+      x: this.doodlerX,
+      y: this.doodlerY,
+      width: this.doodlerWidth,
+      height: this.doodlerHeight,
+    };
+
+    this.velocityX = 0;
+    this.velocityY = this.initialVelocityY;
+    this.score = 0;
+    this.maxScore = 0;
+    this.gameOver = false;
+    this.placePlatforms();
   }
 }
 
