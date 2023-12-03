@@ -154,27 +154,30 @@ class DoodleJumpGame {
 
   // Handles keyboard input to move the doodler and restart the game
   moveDoodler(e) {
-    if (e.code == "ArrowRight" || e.code == "KeyD") {
-      this.velocityX = 4;
-      this.doodler.img = this.doodlerRightImg;
-    } else if (e.code == "ArrowLeft" || e.code == "KeyA") {
-      this.velocityX = -4;
-      this.doodler.img = this.doodlerLeftImg;
-    } else if (e.code == "Space" && this.gameOver) {
-      this.doodler = {
-        img: this.doodlerRightImg,
-        x: this.doodlerX,
-        y: this.doodlerY,
-        width: this.doodlerWidth,
-        height: this.doodlerHeight,
-      };
+    if (window.innerWidth >= 768) {
+      // Existing keyboard controls
+      if (e.code == "ArrowRight" || e.code == "KeyD") {
+        this.velocityX = 4;
+        this.doodler.img = this.doodlerRightImg;
+      } else if (e.code == "ArrowLeft" || e.code == "KeyA") {
+        this.velocityX = -4;
+        this.doodler.img = this.doodlerLeftImg;
+      } else if (e.code == "Space" && this.gameOver) {
+        this.doodler = {
+          img: this.doodlerRightImg,
+          x: this.doodlerX,
+          y: this.doodlerY,
+          width: this.doodlerWidth,
+          height: this.doodlerHeight,
+        };
 
-      this.velocityX = 0;
-      this.velocityY = this.initialVelocityY;
-      this.score = 0;
-      this.maxScore = 0;
-      this.gameOver = false;
-      this.placePlatforms();
+        this.velocityX = 0;
+        this.velocityY = this.initialVelocityY;
+        this.score = 0;
+        this.maxScore = 0;
+        this.gameOver = false;
+        this.placePlatforms();
+      }
     }
   }
 
