@@ -81,10 +81,13 @@ class DoodleJumpGame {
 
     // Check if the device supports orientation events
     if (window.DeviceOrientationEvent) {
-      // Add event listener for device orientation changes
-      window.addEventListener("deviceorientation", (event) =>
-        this.handleOrientation(event)
-      );
+      // Check screen width to enable tilt controls for screens below 768px
+      if (window.innerWidth < 768) {
+        // Add event listener for device orientation changes
+        window.addEventListener("deviceorientation", (event) =>
+          this.handleOrientation(event)
+        );
+      }
     } else {
       // Provide a message if orientation events are not supported
       console.log("Device orientation not supported.");
