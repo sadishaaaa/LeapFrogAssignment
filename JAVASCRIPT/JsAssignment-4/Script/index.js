@@ -154,29 +154,46 @@ class DoodleJumpGame {
 
   // Handles keyboard input to move the doodler and restart the game
   moveDoodler(e) {
-    if (window.innerWidth >= 768) {
-      // Existing keyboard controls
-      if (e.code == "ArrowRight" || e.code == "KeyD") {
+    if (e.code == "ArrowRight" || e.code == "KeyD") {
+      this.velocityX = 4;
+      this.doodler.img = this.doodlerRightImg;
+    } else if (e.code == "ArrowLeft" || e.code == "KeyA") {
+      this.velocityX = -4;
+      this.doodler.img = this.doodlerLeftImg;
+    } else if (e.code == "Space" && this.gameOver) {
+      this.doodler = {
+        img: this.doodlerRightImg,
+        x: this.doodlerX,
+        y: this.doodlerY,
+        width: this.doodlerWidth,
+        height: this.doodlerHeight,
+      };
+
+      this.velocityX = 0;
+      this.velocityY = this.initialVelocityY;
+      this.score = 0;
+      this.maxScore = 0;
+      this.gameOver = false;
+      this.placePlatforms();
+    }
+  }
+
+  // Handles tilt controls for devices with width less than 768 pixels
+  handleOrientation(event) {
+    if (window.innerWidth < 768) {
+      const tiltAngle = event.gamma;
+
+      if (tiltAngle > this.tiltThreshold) {
+        // Tilted right
         this.velocityX = 4;
         this.doodler.img = this.doodlerRightImg;
-      } else if (e.code == "ArrowLeft" || e.code == "KeyA") {
+      } else if (tiltAngle < -this.tiltThreshold) {
+        // Tilted left
         this.velocityX = -4;
         this.doodler.img = this.doodlerLeftImg;
-      } else if (e.code == "Space" && this.gameOver) {
-        this.doodler = {
-          img: this.doodlerRightImg,
-          x: this.doodlerX,
-          y: this.doodlerY,
-          width: this.doodlerWidth,
-          height: this.doodlerHeight,
-        };
-
+      } else {
+        // No tilt, stop movement
         this.velocityX = 0;
-        this.velocityY = this.initialVelocityY;
-        this.score = 0;
-        this.maxScore = 0;
-        this.gameOver = false;
-        this.placePlatforms();
       }
     }
   }
