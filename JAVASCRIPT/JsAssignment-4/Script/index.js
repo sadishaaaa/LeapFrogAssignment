@@ -183,7 +183,7 @@ class DoodleJumpGame {
 
   // Handles tilt controls for devices with width less than 768 pixels
   handleOrientation(event) {
-    if (window.innerWidth < 768) {
+    if (window.innerWidth < 425) {
       const tiltAngle = event.gamma;
 
       if (tiltAngle > this.tiltThreshold) {
