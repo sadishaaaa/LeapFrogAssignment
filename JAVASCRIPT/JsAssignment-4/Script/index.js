@@ -154,7 +154,7 @@ class DoodleJumpGame {
 
   // Handles keyboard input to move the doodler and restart the game
   moveDoodler(e) {
-    if (window.innerWidth >= 768) {
+    if (window.innerWidth >= 435) {
       // Existing keyboard controls
       if (e.code == "ArrowRight" || e.code == "KeyD") {
         this.velocityX = 4;
