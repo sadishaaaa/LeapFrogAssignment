@@ -4,23 +4,6 @@ const grid = 32;
 
 // each even row is 8 bubbles long and each odd row is 7 bubbles long.
 
-const level1 = [
-  ["RA", "R", "Y", "Y", "B", "B", "G", "G"],
-  ["R", "R", "Y", "Y", "B", "B", "G"],
-  ["B", "B", "G", "G", "R", "R", "Y", "Y"],
-  ["B", "G", "G", "R", "R", "Y", "Y"],
-];
-
-const level2 = [
-  ["R", "R", "Y", "Y", "B", "B", "G", "G"],
-  ["R", "R", "Y", "Y", "B", "B", "G", "G"],
-  ["R", "R", "Y", "Y", "B", "B", "G"],
-  ["B", "B", "G", "G", "R", "R", "Y", "Y"],
-  ["B", "G", "G", "R", "R", "Y", "Y"],
-];
-
-const levels = [level1, level2];
-
 let currentLevel = 0;
 
 const colorMap = {
@@ -28,9 +11,10 @@ const colorMap = {
   G: "green",
   B: "blue",
   Y: "yellow",
+  O: "orange",
   // P: "purple",
-  // S: "Skyblue",
-  // O: "orange",
+  S: "Skyblue",
+
   // P: "Pink",
   // RA: "rainbow",
 };
@@ -40,7 +24,7 @@ const colors = Object.values(colorMap);
 const bubbleGap = 3;
 
 // the size of the outer walls for the game
-const wallSize = 4;
+const wallSize = 6;
 const bubbles = [];
 let particles = [];
 
@@ -76,7 +60,7 @@ function initializeBubbleGrid() {
 function nextLevel() {
   currentLevel++;
 
-  if (currentLevel < level1.length) {
+  if (currentLevel < levels.length) {
     initializeBubbleGrid();
     // Additional logic or messages for level transition
   } else {
@@ -359,7 +343,6 @@ function loop() {
       const closestBubble = getClosestBubble(curBubble);
       if (!closestBubble) {
         window.alert("Game Over");
-        window.location.reload();
       }
 
       if (closestBubble) {
