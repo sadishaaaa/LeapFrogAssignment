@@ -5,7 +5,7 @@ const grid = 32;
 // each even row is 8 bubbles long and each odd row is 7 bubbles long.
 
 let currentLevel = 0;
-
+let score = 0;
 const colorMap = {
   R: "red",
   G: "green",
@@ -21,12 +21,13 @@ const colorMap = {
 const colors = Object.values(colorMap);
 
 // use a 3px gap between each bubble
-const bubbleGap = 3;
+const bubbleGap = 4;
 
 // the size of the outer walls for the game
 const wallSize = 6;
 const bubbles = [];
 let particles = [];
+//console.log(particles);
 
 //  function to convert deg to radians
 function degToRad(deg) {
@@ -59,6 +60,7 @@ function initializeBubbleGrid() {
 // Function to switch to the next level
 function nextLevel() {
   currentLevel++;
+  fillGrid();
 
   if (currentLevel < levels.length) {
     initializeBubbleGrid();
@@ -239,18 +241,24 @@ function dropFloatingBubbles() {
         radius: bubble.radius,
         active: true,
       });
+      //console.log(particles);
     });
 }
 
 // fill the grid with inactive bubbles
-for (let row = 0; row < 10; row++) {
-  for (let col = 0; col < (row % 2 === 0 ? 8 : 7); col++) {
-    // if the level has a bubble at the location, create an active
-    // bubble rather than an inactive one
-    const color = level1[row]?.[col];
-    createBubble(col * grid, row * grid, colorMap[color]);
+function fillGrid() {
+  for (let row = 0; row < 10; row++) {
+    for (let col = 0; col < (row % 2 === 0 ? 8 : 7); col++) {
+      // if the level has a bubble at the location, create an active
+      // bubble rather than an inactive one
+      const color = levels[currentLevel][row]?.[col];
+      // console.log(level1);
+      createBubble(col * grid, row * grid, colorMap[color]);
+    }
   }
 }
+
+fillGrid();
 
 const curBubblePos = {
   // place the current bubble horizontally in the middle of the screen
@@ -293,18 +301,28 @@ function getNewBubble() {
 
 // handle collision between the current bubble and another bubble
 function handleCollision(bubble) {
+  // if (bubble.active) {
   bubble.color = curBubble.color;
   bubble.active = true;
   getNewBubble();
   removeMatch(bubble);
   dropFloatingBubbles();
+  // Increase the score when a collision occurs
+  score += 10; // You can adjust the score based on your preference
+  console.log("Score:", score); // Display the score in the console
+  // }
 }
 
 // game loop
 function loop() {
   requestAnimationFrame(loop);
   context.clearRect(0, 0, canvas.width, canvas.height);
-
+  // Display the score on the canvas
+  context.fillStyle = "#fff";
+  context.font = "20px Arial";
+  context.textAlign = "center";
+  context.textBaseline = "bottom"; // Set to bottom
+  context.fillText("Score: " + score, canvas.width / 2, canvas.height - 10);
   // move the shooting arrow
   shootDeg = shootDeg + degToRad(2) * shootDir;
 
@@ -342,6 +360,7 @@ function loop() {
     if (bubble.active && collides(curBubble, bubble)) {
       const closestBubble = getClosestBubble(curBubble);
       if (!closestBubble) {
+        debugger;
         window.alert("Game Over");
       }
 
