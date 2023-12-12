@@ -1,6 +1,8 @@
 const canvas = document.getElementById("game");
 const context = canvas.getContext("2d");
+const BackgroundAudio = document.getElementById("backgroundAudio");
 const grid = 32;
+BackgroundAudio.play();
 
 // each even row is 8 bubbles long and each odd row is 7 bubbles long.
 
