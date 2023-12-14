@@ -23,7 +23,7 @@
       img {
         max-width: 100%;
       }
-      button {
+      .button {
         color: white;
         border-radius: 43%;
         padding: 1rem;
@@ -32,8 +32,8 @@
         font-weight: bold;
         position: absolute;
       }
-      button:hover {
-        background-color: red;
+      .button:hover {
+        background-color: orange;
       }
       .start {
         top: 14rem;
@@ -58,11 +58,46 @@
         <img src="../Assets/Images/b1.png" alt="" />
       </figure>
       <div class="play">
-        <button class="start"><a href="../index.html">Start Game</a></button>
-        <button class="instruction">
-          <a href="../index.html">How to Play</a>
-        </button>
+        <a class="start button" href="../index.html">Start Game</a>
+
+        <a class="instruction button" href="../index.html">How to Play</a>
+
+        <audio
+          src="../Assets/Audio/mp3/theme-2.mp3"
+          id="theme2"
+          autoplay
+          loop
+        ></audio>
+        <audio
+          src="../Assets/Audio/mp3/switch-navigation.mp3"
+          id="selectAudio"
+          autoplay
+        ></audio>
       </div>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get the audio player elements
+        const themeAudio = document.getElementById("theme2");
+        const selectAudio = document.getElementById("selectAudio");
+
+        // Play the background audio on page load
+        themeAudio.play();
+
+        // Get all buttons with the 'button' class
+        const buttons = document.querySelectorAll(".button");
+
+        // Add click event listeners to each button
+        buttons.forEach((button) => {
+          button.addEventListener("click", function (event) {
+            // Play the select audio when a button is clicked
+            selectAudio.play();
+
+            // Prevent the default behavior of the anchor tag to avoid navigation in this example
+            // event.preventDefault();
+          });
+        });
+      });
+    </script>
   </body>
 </html>

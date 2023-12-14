@@ -3,7 +3,7 @@ body {
   height: 100%;
   margin: 0;
 }
-div {
+.container {
   border: 2px solid greenyellow;
   padding: 5rem;
   background: url(../Assets/Images/bg.jpg);

@@ -15,19 +15,56 @@
     <link
       rel="icon"
       type="image/x-icon"
-      href="../FinalAssignment/Assets/Images/favicon.png"
+      href="../FinalAssignment/Assets/Images"
     />
 
     <!-- linking stylesheet to main file -->
     <link rel="stylesheet" href="./Style/style.css" />
+    <style>
+      .levelContainer {
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.2rem;
+        text-align: center;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+      }
+      pre{
+        margin: 0;
+      }
+    </style>
   </head>
   <body>
-  
-    <div>
+    <div class="container">
+      <div class="levelContainer">
+        <div class="level"><pre>Level:</pre> </div>
+        
+       <div id="currentLevel"></div>
+      </div>
+
       <canvas width="300" height="392" id="game"></canvas>
+
+      <!-- Level completed modal -->
+      <div id="levelCompletedModal">
+        <h2>Congratulations!</h2>
+        <p>You completed level <span id="completedLevelNumber"></span></p>
+        <button id="continueButton">Continue</button>
+        <button id="exitButton">Exit</button>
+      </div>
     </div>
     <audio src="./Assets/Audio/mp3/theme-1.mp3" id="backgroundAudio"></audio>
+    <audio
+      src="./Assets/Audio/mp3/launch-bubble.mp3"
+      id="bubble-launch"
+    ></audio>
+    <audio src="./Assets/Audio/mp3/game-lose.mp3" id="game-lose"></audio>
+    <audio
+      src="./Assets/Audio/mp3/target-bubble.mp3"
+      id="target-bubble"
+    ></audio>
     <!-- Linking js files to main -->
+    <script src="./Script/Audio.js"></script>
     <script src="./Script//Level.js"></script>
     <script src="./Script/index.js"></script>
   </body>

@@ -1,8 +1,9 @@
 const canvas = document.getElementById("game");
 const context = canvas.getContext("2d");
-const BackgroundAudio = document.getElementById("backgroundAudio");
+
 const grid = 32;
-BackgroundAudio.play();
+
+// LandingAudio.play();
 
 // each even row is 8 bubbles long and each odd row is 7 bubbles long.
 
@@ -16,6 +17,8 @@ const colorMap = {
   O: "orange",
   // P: "purple",
   S: "Skyblue",
+  BL: "#3A3B3C",
+  BOMB: "black",
 
   // P: "Pink",
   // RA: "rainbow",
@@ -27,6 +30,7 @@ const bubbleGap = 4;
 
 // the size of the outer walls for the game
 const wallSize = 6;
+
 const bubbles = [];
 let particles = [];
 //console.log(particles);
@@ -59,8 +63,11 @@ function initializeBubbleGrid() {
     }
   }
 }
+
 // Function to switch to the next level
 function nextLevel() {
+  window.alert("Congratulations! you completed level 1");
+
   currentLevel++;
   fillGrid();
 
@@ -297,13 +304,24 @@ function getNewBubble() {
   curBubble.y = curBubblePos.y;
   curBubble.dx = curBubble.dy = 0;
 
-  const randInt = getRandomInt(0, colors.length - 1);
-  curBubble.color = colors[randInt];
+  let randInt;
+  do {
+    randInt = getRandomInt(0, colors.length - 1);
+    curBubble.color = colors[randInt];
+  } while (
+    curBubble.color === colorMap.BL || 
+    curBubble.color === colorMap.BOMB
+   );
 }
 
 // handle collision between the current bubble and another bubble
 function handleCollision(bubble) {
   // if (bubble.active) {
+  if (bubble.color === colorMap.BOMB) {
+    // Game over if the collided bubble is a BOMB
+    gameOver();
+    return;
+  }
   bubble.color = curBubble.color;
   bubble.active = true;
   getNewBubble();
@@ -314,17 +332,31 @@ function handleCollision(bubble) {
   console.log("Score:", score); // Display the score in the console
   // }
 }
+// Function to handle game over
+function gameOver() {
+  window.alert("Game Over");
+  // You can add more game-over actions if needed
+  // For example, reloading the game or redirecting to a game-over screen
+  window.location.reload();
+}
 
 // game loop
 function loop() {
   requestAnimationFrame(loop);
   context.clearRect(0, 0, canvas.width, canvas.height);
-  // Display the score on the canvas
+  // Display the score on the canvas using stars
   context.fillStyle = "#fff";
   context.font = "20px Arial";
   context.textAlign = "center";
   context.textBaseline = "bottom"; // Set to bottom
-  context.fillText("Score: " + score, canvas.width / 2, canvas.height - 10);
+  context.fillText(
+    "Score: " + score,
+    canvas.width / 2 - 50,
+    canvas.height - 10
+  );
+
+  // Draw stars based on the score
+
   // move the shooting arrow
   shootDeg = shootDeg + degToRad(2) * shootDir;
 
@@ -407,7 +439,7 @@ function loop() {
 
     // draw a circle
     context.beginPath();
-    context.arc(bubble.x, bubble.y, bubble.radius, 0, 2 * Math.PI);
+    context.arc(bubble.x, bubble.y + 5, bubble.radius, 0, 2 * Math.PI);
     context.fill();
   });
 
@@ -441,7 +473,8 @@ function loop() {
   context.beginPath();
   context.arc(curBubble.x, curBubble.y, curBubble.radius, 0, 2 * Math.PI);
   context.fill();
-
+  // Update the content of the current level outside the canvas
+  document.getElementById("currentLevel").textContent = currentLevel + 1;
   // Check if all active bubbles are cleared for the current level
   if (bubbles.every((bubble) => !bubble.active)) {
     nextLevel();
