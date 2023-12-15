@@ -15,10 +15,13 @@ const colorMap = {
   B: "blue",
   Y: "yellow",
   O: "orange",
-  // P: "purple",
+  RAINBOW: "purple",
+  MAGIC: "PINK",
+  GHOST: "#301934",
   S: "Skyblue",
   BL: "#3A3B3C",
   BOMB: "black",
+  ELECTRIC: "#1AA7EC",
 
   // P: "Pink",
   // RA: "rainbow",
@@ -64,21 +67,31 @@ function initializeBubbleGrid() {
   }
 }
 
+function showLevelCompletedModal() {
+  document.getElementById("levelCompletedModal").style.display = "block";
+  document.getElementById("completedLevelNumber").textContent =
+    currentLevel + 1;
+}
+
+document
+  .getElementById("continueButton")
+  .addEventListener("click", function () {
+    document.getElementById("levelCompletedModal").style.display = "none";
+    currentLevel++;
+    fillGrid();
+    if (currentLevel < levels.length) {
+      initializeBubbleGrid();
+      // Additional logic or messages for level transition
+    } else {
+      // All levels completed, you can implement game completion logic here
+      window.alert("Congratulations! You completed all levels!");
+      window.location.reload();
+    }
+  });
+
 // Function to switch to the next level
 function nextLevel() {
-  window.alert("Congratulations! you completed level 1");
-
-  currentLevel++;
-  fillGrid();
-
-  if (currentLevel < levels.length) {
-    initializeBubbleGrid();
-    // Additional logic or messages for level transition
-  } else {
-    // All levels completed, you can implement game completion logic here
-    window.alert("Congratulations! You completed all levels!");
-    window.location.reload();
-  }
+  showLevelCompletedModal();
 }
 
 // get a random integer between the range of [min,max]
@@ -309,9 +322,9 @@ function getNewBubble() {
     randInt = getRandomInt(0, colors.length - 1);
     curBubble.color = colors[randInt];
   } while (
-    curBubble.color === colorMap.BL || 
+    curBubble.color === colorMap.BL ||
     curBubble.color === colorMap.BOMB
-   );
+  );
 }
 
 // handle collision between the current bubble and another bubble
@@ -401,6 +414,15 @@ function loop() {
       if (closestBubble) {
         handleCollision(closestBubble);
       }
+    }
+    if (
+      bubble.active &&
+      collides(curBubble, bubble) &&
+      bubble.color === colorMap.BOMB
+    ) {
+      // Game over if the collided bubble is a BOMB
+      window.alert("Bomb is blast");
+      return;
     }
     const allBubblesCleared = bubbles.every((bubble) => !bubble.active);
     if (allBubblesCleared) {

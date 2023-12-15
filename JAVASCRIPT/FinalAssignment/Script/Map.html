@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .map_container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .map_level {
+        width: 5rem;
+        padding: 1rem;
+        background-color: grey;
+        filter: grayscale(100%); /* Set all levels to black and white */
+      }
+
+      .active {
+        filter: grayscale(0%);
+
+        border: 2px solid yellow;
+        background-color: yellowgreen;
+        color: white;
+        /* Keep the active level in color */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="map_container">
+      <div class="map_level active" id="level1">Level 1</div>
+      <div class="map_level" id="level2">Level 2</div>
+      <div class="map_level">Level 3</div>
+      <div class="map_level">Level 4</div>
+      <div class="map_level">Level 5</div>
+      <div class="map_level">Level 6</div>
+      <div class="map_level">Level 7</div>
+      <div class="map_level">Level 8</div>
+      <div class="map_level">Level 9</div>
+      <div class="map_level">Level 10</div>
+      <div class="map_level">Level 11</div>
+      <div class="map_level">Level 12</div>
+      <div class="map_level">Level 13</div>
+      <div class="map_level">Level 14</div>
+      <div class="map_level">Level 15</div>
+      <div class="map_level">Level 16</div>
+      <div class="map_level">Level 17</div>
+      <div class="map_level">Level 18</div>
+      <div class="map_level">Level 19</div>
+      <div class="map_level">Level 20</div>
+    </div>
+  </body>
+  <script src="../Script/Level.js"></script>
+  <script src="../Script/index.js"></script>
+</html>
