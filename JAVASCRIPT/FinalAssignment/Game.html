@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta tags  -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Bubble-shooter game" />
+    <meta name="keywords" content="Bubble-shooter, Game, Easy-games" />
+    <meta name="author" content="Sadisha Shrestha" />
+
+    <!-- Title of the project -->
+    <title>Bubble Shooter</title>
+
+    <!-- Fav-icon of the project -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../FinalAssignment/Assets/Images"
+    />
+
+    <!-- linking stylesheet to main file -->
+    <link rel="stylesheet" href="./Style/style.css" />
+  
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="levelContainer">
+        <div class="level"><pre>Level:</pre></div>
+
+        <div id="currentLevel"></div>
+      </div>
+      <div class="canvas_container">
+        <canvas width="300" height="450" id="game"> </canvas>
+
+
+      <!-- Level completed modal -->
+      <div id="levelCompletedModal">
+        <h2>Congratulations!</h2>
+        <p>Level <span id="completedLevelNumber"></span>Completed </p>
+        <button id="continueButton">Continue</button>
+        <button id="exitButton">Exit</button>
+      </div>
+      <div id="gameOver">
+        <h2>Game Over!</h2>
+        <button id="restart">restart</button>
+      </div>
+    </div>
+    <audio src="./Assets/Audio/mp3/theme-1.mp3" id="backgroundAudio"></audio>
+    <audio
+      src="./Assets/Audio/mp3/launch-bubble.mp3"
+      id="bubble-launch"
+    ></audio>
+    <audio src="./Assets/Audio/mp3/game-lose.mp3" id="game-lose"></audio>
+    <audio
+      src="./Assets/Audio/mp3/target-bubble.mp3"
+      id="target-bubble"
+    ></audio>
+    <!-- Linking js files to main -->
+    <script src="./Script/Audio.js"></script>
+    <script src="./Script//Level.js"></script>
+    <script src="./Script/index.js"></script>
+  </body>
+</html>

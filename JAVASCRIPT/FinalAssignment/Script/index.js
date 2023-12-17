@@ -15,16 +15,9 @@ const colorMap = {
   B: "blue",
   Y: "yellow",
   O: "orange",
-  RAINBOW: "purple",
-  MAGIC: "PINK",
-  GHOST: "#301934",
   S: "Skyblue",
-  BL: "#3A3B3C",
+  STONE: "#3A3B3C",
   BOMB: "black",
-  ELECTRIC: "#1AA7EC",
-
-  // P: "Pink",
-  // RA: "rainbow",
 };
 const colors = Object.values(colorMap);
 
@@ -79,19 +72,23 @@ document
     document.getElementById("levelCompletedModal").style.display = "none";
     currentLevel++;
     fillGrid();
-    if (currentLevel < levels.length) {
-      initializeBubbleGrid();
-      // Additional logic or messages for level transition
-    } else {
-      // All levels completed, you can implement game completion logic here
-      window.alert("Congratulations! You completed all levels!");
-      window.location.reload();
-    }
   });
 
 // Function to switch to the next level
 function nextLevel() {
-  showLevelCompletedModal();
+  window.alert("Congratulations! you completed level 1");
+
+  currentLevel++;
+  fillGrid();
+
+  if (currentLevel < levels.length) {
+    initializeBubbleGrid();
+    // Additional logic or messages for level transition
+  } else {
+    // All levels completed, you can implement game completion logic here
+    window.alert("Congratulations! You completed all levels!");
+    window.location.reload();
+  }
 }
 
 // get a random integer between the range of [min,max]
@@ -285,13 +282,13 @@ fillGrid();
 const curBubblePos = {
   // place the current bubble horizontally in the middle of the screen
   x: canvas.width / 2,
-  y: canvas.height - grid * 1.5,
+  y: canvas.height - grid * 2.5,
 };
 const curBubble = {
   x: curBubblePos.x,
   y: curBubblePos.y,
   color: "red",
-  radius: grid / 2, // a circles radius is half the width (diameter)
+  radius: grid / 1.7, // a circles radius is half the width (diameter)
 
   // how fast the bubble should go in either the x or y direction
   speed: 8,
@@ -322,36 +319,70 @@ function getNewBubble() {
     randInt = getRandomInt(0, colors.length - 1);
     curBubble.color = colors[randInt];
   } while (
-    curBubble.color === colorMap.BL ||
+    curBubble.color === colorMap.STONE ||
     curBubble.color === colorMap.BOMB
   );
 }
+function getHighestScore() {
+  return localStorage.getItem("highestScore") || 0;
+}
+function updateHighestScore(newScore) {
+  const highestScore = getHighestScore();
+  if (newScore > highestScore) {
+    localStorage.setItem("highestScore", newScore);
+    document.getElementById("HighScore").textContent = "HighScore: " + newScore;
+  }
+}
 
+function showGameOverScreen() {
+  document.getElementById("gameOver").style.display = "flex";
+  document.getElementById("restart").addEventListener("click", function () {
+    window.location.reload();
+  });
+  // You can add more game-over actions if needed
+}
+
+// Function to hide "Game Over" screen
+function hideGameOverScreen() {
+  document.getElementById("gameOver").style.display = "none";
+}
+
+// Function to handle game over
+function gameOver() {
+  showGameOverScreen();
+  // You can add more game-over actions if needed
+}
 // handle collision between the current bubble and another bubble
 function handleCollision(bubble) {
-  // if (bubble.active) {
-  if (bubble.color === colorMap.BOMB) {
-    // Game over if the collided bubble is a BOMB
-    gameOver();
-    return;
-  }
+  console.log("Collided with bubble of color:", bubble.color);
+
   bubble.color = curBubble.color;
+  console.log(bubble.color);
+
   bubble.active = true;
   getNewBubble();
   removeMatch(bubble);
   dropFloatingBubbles();
-  // Increase the score when a collision occurs
-  score += 10; // You can adjust the score based on your preference
-  console.log("Score:", score); // Display the score in the console
-  // }
+  // Calculate the number of bubbles dropped in the current collision
+  const droppedBubbles = bubbles.filter((b) => !b.active).length;
+  console.log(droppedBubbles);
+  // Calculate the score increase based on the number of bubbles dropped
+  const scoreIncrease = droppedBubbles;
+
+  // Update the score
+  score += scoreIncrease;
+
+  console.log("Score:", score);
+  updateHighestScore(score);
 }
+
 // Function to handle game over
-function gameOver() {
-  window.alert("Game Over");
-  // You can add more game-over actions if needed
-  // For example, reloading the game or redirecting to a game-over screen
-  window.location.reload();
-}
+// function gameOver() {
+//   window.alert("Game Over");
+//   // You can add more game-over actions if needed
+//   // For example, reloading the game or redirecting to a game-over screen
+//   window.location.reload();
+// }
 
 // game loop
 function loop() {
@@ -364,8 +395,19 @@ function loop() {
   context.textBaseline = "bottom"; // Set to bottom
   context.fillText(
     "Score: " + score,
-    canvas.width / 2 - 50,
-    canvas.height - 10
+    canvas.width / 1 - 80,
+    canvas.height - 30
+  );
+
+  const highestScore = getHighestScore();
+  context.fillStyle = "#fff";
+  context.font = "20px Arial";
+  context.textAlign = "center";
+  context.textBaseline = "bottom"; // Set to bottom
+  context.fillText(
+    "Highest Score: " + highestScore,
+    canvas.width / 1.5,
+    canvas.height
   );
 
   // Draw stars based on the score
@@ -474,7 +516,7 @@ function loop() {
   context.rotate(shootDeg);
 
   // move to the top-left corner of or fire arrow
-  context.translate(0, (-grid / 2) * 4.5);
+  context.translate(0, (-grid / 1) * 4);
 
   // draw arrow ↑
   context.strokeStyle = "white";
@@ -483,9 +525,9 @@ function loop() {
   context.moveTo(0, 0);
   context.lineTo(0, grid * 2);
   context.moveTo(0, 0);
-  context.lineTo(-10, grid * 0.4);
+  context.lineTo(-12, grid * 0.4);
   context.moveTo(0, 0);
-  context.lineTo(10, grid * 0.4);
+  context.lineTo(12, grid * 0.4);
   context.stroke();
 
   context.restore();

@@ -20,64 +20,51 @@
 
     <!-- linking stylesheet to main file -->
     <link rel="stylesheet" href="./Style/style.css" />
-    <style>
-      .levelContainer {
-        color: #fff;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 1.2rem;
-        text-align: center;
-        font-weight: bold;
-        display: flex;
-        justify-content: center;
-        position: relative;
-      }
-      pre {
-        margin: 0;
-      }
-      #levelCompletedModal {
-        border: 4px solid greenyellow;
-        border-radius: 10%;
-        padding: 10px;
-        font-family: Arial, Helvetica, sans-serif;
-        display: none;
-        position: absolute;
-        top: 41%;
-        left: 38%;
-        backdrop-filter: blur(10px);
-      }
-    </style>
   </head>
   <body>
-    <div class="container">
-      <div class="levelContainer">
-        <div class="level"><pre>Level:</pre></div>
+    <div class="landingPage">
+      <figure>
+        <img src="./Assets/Images/b1.png" alt="" />
+      </figure>
+      <div class="play">
+        <a class="start button" href="./Game.html">Start Game</a>
+        <a class="instruction button" href="./Instruction.Html">How to Play</a>
 
-        <div id="currentLevel"></div>
-      </div>
-
-      <canvas width="300" height="392" id="game"></canvas>
-
-      <!-- Level completed modal -->
-      <div id="levelCompletedModal">
-        <h2>Congratulations!</h2>
-        <p>Level Completed <span id="completedLevelNumber"></span></p>
-        <button id="continueButton">Continue</button>
-        <button id="exitButton">Exit</button>
+        <audio
+          src="../Assets/Audio/mp3/theme-2.mp3"
+          id="theme2"
+          autoplay
+          loop
+        ></audio>
+        <audio
+          src="../Assets/Audio/mp3/switch-navigation.mp3"
+          id="selectAudio"
+          autoplay
+          loop
+        ></audio>
       </div>
     </div>
-    <audio src="./Assets/Audio/mp3/theme-1.mp3" id="backgroundAudio"></audio>
-    <audio
-      src="./Assets/Audio/mp3/launch-bubble.mp3"
-      id="bubble-launch"
-    ></audio>
-    <audio src="./Assets/Audio/mp3/game-lose.mp3" id="game-lose"></audio>
-    <audio
-      src="./Assets/Audio/mp3/target-bubble.mp3"
-      id="target-bubble"
-    ></audio>
-    <!-- Linking js files to main -->
-    <script src="./Script/Audio.js"></script>
-    <script src="./Script//Level.js"></script>
-    <script src="./Script/index.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get the audio player elements
+        const themeAudio = document.getElementById("theme2");
+        const selectAudio = document.getElementById("selectAudio");
+
+        // Play the background audio on page load
+        themeAudio.play();
+
+        // Get all buttons with the 'button' class
+        const buttons = document.querySelectorAll(".button");
+
+        // Addedclick event listeners to each button
+        buttons.forEach((button) => {
+          button.addEventListener("click", function (event) {
+            // Play the select audio when a button is clicked
+            selectAudio.play();
+
+          });
+        });
+      });
+    </script>
   </body>
 </html>
