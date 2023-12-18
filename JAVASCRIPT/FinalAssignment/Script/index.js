@@ -1,12 +1,6 @@
 const canvas = document.getElementById("game");
 const context = canvas.getContext("2d");
-
 const grid = 32;
-
-// LandingAudio.play();
-
-// each even row is 8 bubbles long and each odd row is 7 bubbles long.
-
 let currentLevel = 0;
 let score = 0;
 const colorMap = {
@@ -26,10 +20,8 @@ const bubbleGap = 4;
 
 // the size of the outer walls for the game
 const wallSize = 6;
-
 const bubbles = [];
 let particles = [];
-//console.log(particles);
 
 //  function to convert deg to radians
 function degToRad(deg) {
@@ -60,6 +52,7 @@ function initializeBubbleGrid() {
   }
 }
 
+//function for showing modqal after the game is completed
 function showLevelCompletedModal() {
   document.getElementById("levelCompletedModal").style.display = "block";
   document.getElementById("completedLevelNumber").textContent =
@@ -76,16 +69,10 @@ document
 
 // Function to switch to the next level
 function nextLevel() {
-  window.alert("Congratulations! you completed level 1");
-
-  currentLevel++;
-  fillGrid();
-
+  showLevelCompletedModal();
   if (currentLevel < levels.length) {
     initializeBubbleGrid();
-    // Additional logic or messages for level transition
   } else {
-    // All levels completed, you can implement game completion logic here
     window.alert("Congratulations! You completed all levels!");
     window.location.reload();
   }
@@ -144,8 +131,7 @@ function createBubble(x, y, color) {
   const startX = row % 2 === 0 ? 0 : 0.5 * grid;
 
   // because we are drawing circles we need the x/y position
-  // to be the center of the circle instead of the top-left
-  // corner like you would for a square
+  // to be the center of the circle
   const center = grid / 2;
 
   // Adjust the radius to make the bubbles larger
@@ -260,7 +246,6 @@ function dropFloatingBubbles() {
         radius: bubble.radius,
         active: true,
       });
-      //console.log(particles);
     });
 }
 
@@ -289,11 +274,9 @@ const curBubble = {
   y: curBubblePos.y,
   color: "red",
   radius: grid / 1.7, // a circles radius is half the width (diameter)
-
-  // how fast the bubble should go in either the x or y direction
   speed: 8,
 
-  // bubble velocity
+  //velocity of bubbke
   dx: 0,
   dy: 0,
 };
@@ -326,6 +309,7 @@ function getNewBubble() {
 function getHighestScore() {
   return localStorage.getItem("highestScore") || 0;
 }
+//funstion to store high score
 function updateHighestScore(newScore) {
   const highestScore = getHighestScore();
   if (newScore > highestScore) {
@@ -334,12 +318,16 @@ function updateHighestScore(newScore) {
   }
 }
 
+//function to show gameOver screen
 function showGameOverScreen() {
   document.getElementById("gameOver").style.display = "flex";
   document.getElementById("restart").addEventListener("click", function () {
     window.location.reload();
   });
-  // You can add more game-over actions if needed
+  document.getElementById("exit").addEventListener("click", function () {
+    // Redirect to the main page
+    window.location.href = "../index.html";
+  });
 }
 
 // Function to hide "Game Over" screen
@@ -350,22 +338,22 @@ function hideGameOverScreen() {
 // Function to handle game over
 function gameOver() {
   showGameOverScreen();
-  // You can add more game-over actions if needed
 }
+
 // handle collision between the current bubble and another bubble
 function handleCollision(bubble) {
   console.log("Collided with bubble of color:", bubble.color);
-
   bubble.color = curBubble.color;
   console.log(bubble.color);
-
   bubble.active = true;
   getNewBubble();
   removeMatch(bubble);
   dropFloatingBubbles();
+
   // Calculate the number of bubbles dropped in the current collision
   const droppedBubbles = bubbles.filter((b) => !b.active).length;
   console.log(droppedBubbles);
+
   // Calculate the score increase based on the number of bubbles dropped
   const scoreIncrease = droppedBubbles;
 
@@ -375,14 +363,6 @@ function handleCollision(bubble) {
   console.log("Score:", score);
   updateHighestScore(score);
 }
-
-// Function to handle game over
-// function gameOver() {
-//   window.alert("Game Over");
-//   // You can add more game-over actions if needed
-//   // For example, reloading the game or redirecting to a game-over screen
-//   window.location.reload();
-// }
 
 // game loop
 function loop() {
@@ -409,8 +389,6 @@ function loop() {
     canvas.width / 1.5,
     canvas.height
   );
-
-  // Draw stars based on the score
 
   // move the shooting arrow
   shootDeg = shootDeg + degToRad(2) * shootDir;
@@ -450,7 +428,7 @@ function loop() {
       const closestBubble = getClosestBubble(curBubble);
       if (!closestBubble) {
         debugger;
-        window.alert("Game Over");
+        showGameOverScreen();
       }
 
       if (closestBubble) {
@@ -529,7 +507,6 @@ function loop() {
   context.moveTo(0, 0);
   context.lineTo(12, grid * 0.4);
   context.stroke();
-
   context.restore();
 
   // draw current bubble
@@ -537,8 +514,10 @@ function loop() {
   context.beginPath();
   context.arc(curBubble.x, curBubble.y, curBubble.radius, 0, 2 * Math.PI);
   context.fill();
+
   // Update the content of the current level outside the canvas
   document.getElementById("currentLevel").textContent = currentLevel + 1;
+
   // Check if all active bubbles are cleared for the current level
   if (bubbles.every((bubble) => !bubble.active)) {
     nextLevel();

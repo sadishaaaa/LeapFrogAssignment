@@ -4,7 +4,6 @@ body {
   margin: 0;
 }
 
-
 /* css of landing page */
 .landingPage {
   border: 2px solid red;
@@ -73,7 +72,6 @@ canvas {
   display: block; /* Add this to center the canvas */
 }
 
-
 /* css of game.html */
 .levelContainer {
   color: #fff;
@@ -100,25 +98,27 @@ pre {
   backdrop-filter: blur(10px);
 }
 
-#gameOver{
-border: 1 px solid red;
-background-color: red;
-width: 10rem;
-height: 5rem;
-color: #fff;
+#gameOver {
+  border: 1 px solid red;
+  background-color: red;
+  width: 10rem;
+  height: 5rem;
+  color: #fff;
 
-justify-content: center;
-flex-direction: column;
-border-radius: 20px;
-padding: 10px;
-display: none;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 20px;
+  padding: 1.5rem;
+  position: absolute;
+  top: 20%;
+  left: 40%;
+  display: none;
 }
-#restart{
-height: 1.5rem;
-width: 4rem;
-border: none;
-border-radius: 20px;
-color: #fff;
-background-color: green;
-
+#restart {
+  height: 1.5rem;
+  width: 4rem;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  background-color: green;
 }
