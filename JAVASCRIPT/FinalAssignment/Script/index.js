@@ -345,6 +345,9 @@ function handleCollision(bubble) {
   console.log("Collided with bubble of color:", bubble.color);
   bubble.color = curBubble.color;
   console.log(bubble.color);
+  if (bubble.color === colorMap.BOMB) {
+    console.log("collide with bomb");
+  }
   bubble.active = true;
   getNewBubble();
   removeMatch(bubble);
@@ -427,7 +430,7 @@ function loop() {
     if (bubble.active && collides(curBubble, bubble)) {
       const closestBubble = getClosestBubble(curBubble);
       if (!closestBubble) {
-        debugger;
+        // debugger;
         showGameOverScreen();
       }
 
@@ -435,11 +438,8 @@ function loop() {
         handleCollision(closestBubble);
       }
     }
-    if (
-      bubble.active &&
-      collides(curBubble, bubble) &&
-      bubble.color === colorMap.BOMB
-    ) {
+    const black = colorMap.BOMB;
+    if (bubble.active && collides(curBubble, black)) {
       // Game over if the collided bubble is a BOMB
       window.alert("Bomb is blast");
       return;
