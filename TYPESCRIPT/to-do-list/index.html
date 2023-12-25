@@ -1,13 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image" href="./src/Assets/Img/fav-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>To-do-list</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
+    <header class="header">
+      <h2>To Do List</h2>
+    </header>
+    <div id="app">
+      <div id="search-container" class="search-container">
+        <input
+          type="text"
+          id="search-input"
+          class="input"
+          placeholder="search..."
+        />
+      </div>
+      <div id="controls" class="controls">
+        <input
+          type="text"
+          id="add-task-input"
+          class="input"
+          placeholder="New Task..."
+        />
+        <!-- Add Task Button -->
+        <button id="add-task-button" class="btn btn-add">Add Task</button>
+      </div>
+      <div id="task-list"></div>
+    </div>
+    <script type="module" src="./src/main.ts"></script>
   </body>
 </html>

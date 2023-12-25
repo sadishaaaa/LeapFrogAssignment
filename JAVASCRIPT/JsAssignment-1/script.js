@@ -117,4 +117,3 @@ function searchTasks(tabId) {
     }
   });
 }
-//html
