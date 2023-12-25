@@ -1,7 +1,7 @@
 import "normalize.css";
-import "./Styles/style.css";
-import { Task } from "./Scripts/ts/Task";
-import { TaskList } from "./Scripts/ts/TaskList";
+import "../src/Styles/style.css";
+import { Task } from "../src/Scripts/ts/Task";
+import { TaskList } from "../src/Scripts/ts/TaskList";
 
 const taskListElement = document.getElementById("task-list");
 const searchInput = document.getElementById("search-input");
