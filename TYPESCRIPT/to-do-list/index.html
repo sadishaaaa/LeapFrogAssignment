@@ -7,30 +7,40 @@
     <title>To-do-list</title>
   </head>
   <body>
-    <header class="header">
-      <h2>To Do List</h2>
-    </header>
-    <div id="app">
-      <div id="search-container" class="search-container">
-        <input
-          type="text"
-          id="search-input"
-          class="input"
-          placeholder="search..."
-        />
+    <section class="container">
+      <header class="header">
+        <div id="logo">
+          <img src="./src/Assets/Img/fav-icon.png" alt="" />
+        </div>
+        <div class="tab-container">
+          <a href="#" id="all-tasks" class="tab active">All Tasks</a>
+          <a href="#" id="remaining-tasks" class="tab">Remaining Tasks</a>
+          <a href="#" id="completed-tasks" class="tab">Completed Tasks</a>
+        </div>
+      </header>
+      <div id="app">
+        <div id="search-container" class="search-container">
+          <input
+            type="text"
+            id="search-input"
+            class="input"
+            placeholder="search..."
+          />
+        </div>
+        <div id="controls" class="controls">
+          <input
+            type="text"
+            id="add-task-input"
+            class="input"
+            placeholder="New Task..."
+          />
+          <!-- Add Task Button -->
+          <button id="add-task-button" class="btn btn-add">Add Task</button>
+        </div>
+        <div id="task-list"></div>
       </div>
-      <div id="controls" class="controls">
-        <input
-          type="text"
-          id="add-task-input"
-          class="input"
-          placeholder="New Task..."
-        />
-        <!-- Add Task Button -->
-        <button id="add-task-button" class="btn btn-add">Add Task</button>
-      </div>
-      <div id="task-list"></div>
-    </div>
+    </section>
+
     <script type="module" src="./src/main.ts"></script>
   </body>
 </html>
