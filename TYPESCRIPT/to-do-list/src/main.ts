@@ -151,7 +151,7 @@ const tabs = document.querySelectorAll(".tab");
 
 function tabClickHandler(this: HTMLElement) {
   // Remove the 'active' class from all tabs
-  tabs.forEach((t: HTMLElement) => t.classList.remove("active"));
+  tabs.forEach((t) => t.classList.remove("active"));
 
   // Add the 'active' class to the clicked tab
   this.classList.add("active");
@@ -174,11 +174,11 @@ function tabClickHandler(this: HTMLElement) {
 }
 
 // Convert NodeList to array using Array.from
-Array.from(tabs).forEach((tab: HTMLElement) => {
+Array.from(tabs).forEach((tab) => {
   tab.addEventListener("click", tabClickHandler);
 });
 
-tabs.forEach((tab: HTMLElement) => {
+tabs.forEach((tab) => {
   tab.addEventListener("click", tabClickHandler);
 });
 
@@ -214,7 +214,7 @@ function loadTasksFromLocalStorage(): void {
   if (storedTasks) {
     const parsedTasks = JSON.parse(storedTasks);
     taskList.list = parsedTasks.map(
-      (task: any) => new Task(task.value, task.completed)
+      (task: Task) => new Task(task.value, task.completed)
     );
     render();
   }
