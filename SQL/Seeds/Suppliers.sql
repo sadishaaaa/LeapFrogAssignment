@@ -1,0 +1,1 @@
+\COPY Suppliers FROM 'suppliers.csv' WITH CSV HEADER;
