@@ -1,0 +1,1 @@
+SELECT  customerId contactName, Address, city, Country from customers limit 4 offset 4;
