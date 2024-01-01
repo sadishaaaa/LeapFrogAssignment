@@ -1,9 +1,10 @@
-import express,{Request,Response} from "express";
+import express, { Request, Response } from "express";
 import config from "./config";
-import routes from "./Routes";
+import routes from "./Routes/router";
+import router from "./Routes/router";
 const app = express();
 app.use(express.json());
-app.use(routes)
+app.use("/api", router);
 
 console.log(`server listioning on port: ${config.serverPort}`);
-app.listen(config.serverPort)
+app.listen(config.serverPort);
