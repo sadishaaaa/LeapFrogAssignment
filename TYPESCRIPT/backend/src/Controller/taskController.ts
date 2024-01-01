@@ -1,14 +1,21 @@
 import { Request, Response } from "express";
-import taskService from "../Service/taskService";
+import {
+  completeTaskService,
+  createTaskService,
+  deleteAllTaskService,
+  deleteTaskService,
+  getAllTasksService,
+  getCompletedTaskService,
+  getRemainingTaskService,
+  remainingTaskService,
+  updateTaskService,
+} from "../Service/taskService";
 import pool from "../Model/Model";
 
 export const createTask = async (req: Request, res: Response) => {
   try {
     const { task } = req.body;
-    const result = await pool.query(
-      "INSERT INTO tasks (task) VALUES ($1) RETURNING *",
-      [task]
-    );
+    const result = await createTaskService(task);
     res.json({
       success: true,
       message: "Task added",
@@ -24,18 +31,16 @@ export const createTask = async (req: Request, res: Response) => {
 
 export const getAllTasks = async (req: Request, res: Response) => {
   try {
-    const result = await pool.query("SELECT * FROM tasks");
+    const result = await getAllTasksService();
     if (result.rows.length === 0) {
-      res.json({message:"No task available"});
+      res.json({ message: "No task available" });
+    } else {
+      res.json({
+        success: true,
+        count: result.rowCount,
+        data: result.rows,
+      });
     }
-    else{
-        res.json({
-            success: true,
-            count: result.rowCount,
-            data: result.rows,
-          });
-    }
-   
   } catch (error) {
     res.json({
       success: false,
@@ -48,10 +53,7 @@ export const updateTask = async (req: Request, res: Response) => {
   try {
     const taskid = req.params.id;
     const { task } = req.body;
-    const result = await pool.query(
-      "UPDATE tasks SET task = $1  WHERE taskid = $2 RETURNING *",
-      [task, taskid]
-    );
+    const result = await updateTaskService(taskid, task);
     res.json({
       success: true,
       count: result.rowCount,
@@ -67,10 +69,7 @@ export const updateTask = async (req: Request, res: Response) => {
 export const deleteTask = async (req: Request, res: Response) => {
   try {
     const taskid = req.params.id;
-    const result = await pool.query(
-      "Delete FROM tasks WHERE taskid = $1 RETURNING *",
-      [taskid]
-    );
+    const result = await deleteTaskService(taskid);
     res.json({
       success: true,
       message: "sucessfully deleted",
@@ -84,7 +83,7 @@ export const deleteTask = async (req: Request, res: Response) => {
 };
 export const deleteAllTask = async (req: Request, res: Response) => {
   try {
-    const result = await pool.query("DELETE FROM tasks RETURNING *");
+    const result = await deleteAllTaskService();
     res.json({
       success: true,
       message: "sucessfully deleted",
@@ -93,6 +92,72 @@ export const deleteAllTask = async (req: Request, res: Response) => {
     res.json({
       success: false,
       message: "Delete failed",
+    });
+  }
+};
+
+export const getRemainingTask = async (req: Request, res: Response) => {
+  try {
+    const result = await getRemainingTaskService();
+    res.json({
+      success: true,
+      message: "Sucessful",
+      data: result.rows,
+    });
+  } catch (error) {
+    res.json({
+      success: false,
+      message: "Failed",
+    });
+  }
+};
+export const getCompletedTask = async (req: Request, res: Response) => {
+  try {
+    const result = await getCompletedTaskService();
+    res.json({
+      success: true,
+      message: "Sucessful",
+      data: result.rows,
+    });
+  } catch (error) {
+    res.json({
+      success: false,
+      message: "Failed",
+    });
+  }
+};
+
+export const completeTask = async (req: Request, res: Response) => {
+  try {
+    const taskid = req.params.id;
+
+    const result = await completeTaskService(taskid);
+    res.json({
+      success: true,
+      count: result.rowCount,
+      data: result.rows,
+    });
+  } catch (error) {
+    res.json({
+      success: false,
+      message: "Error getting all tasks",
+    });
+  }
+};
+export const remainingTask = async (req: Request, res: Response) => {
+  try {
+    const taskid = req.params.id;
+
+    const result = await remainingTaskService(taskid);
+    res.json({
+      success: true,
+      count: result.rowCount,
+      data: result.rows,
+    });
+  } catch (error) {
+    res.json({
+      success: false,
+      message: "Error getting all tasks",
     });
   }
 };

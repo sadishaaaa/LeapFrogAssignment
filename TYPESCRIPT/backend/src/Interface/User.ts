@@ -1,8 +1,13 @@
 export interface User {
-  id: string;
-  username: string;
-  password: string;
+  UserId: number;
+  UserName: string;
+  Address: string;
+  PhoneNumber: string;
+  Email: string;
+  Password: string;
+  EmailVerified: boolean;
 }
+
 const users: User[] = [];
 
 export default users;
