@@ -1,15 +1,18 @@
 import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
+import config from "../config";
 import pool from "../Model/Model";
+import { ACCESS_TOKEN_EXPIRY, REFRESH_TOKEN_EXPIRY } from "../constant/jwt";
+import { SALT_ROUNDS } from "../constant/bcrypt";
 import { sendVerificationEmail } from "../utils/email";
 
-const secretKey = "todolist";
+// const secretKey = "todolist";
 export const createUser = async (req: Request, res: Response) => {
   const data = req.body;
 
   try {
-    const hashedPassword = await bcrypt.hash(data.password, 10);
+    const hashedPassword = await bcrypt.hash(data.password, SALT_ROUNDS);
     data.password = hashedPassword;
 
     const result = await pool.query(
@@ -25,8 +28,12 @@ export const createUser = async (req: Request, res: Response) => {
       expiresIn: "2d",
     };
 
-    const verificationToken = await jwt.sign(infoObj, secretKey, expiryInfo);
-// sending token and email to emailutils
+    const verificationToken = await jwt.sign(
+      infoObj,
+      config.jwt.accessTokenSecret!,
+      expiryInfo
+    );
+    // sending token and email to emailutils
     await sendVerificationEmail(data.email, verificationToken);
 
     res.status(201).json({
@@ -45,7 +52,7 @@ export const createUser = async (req: Request, res: Response) => {
 export const verifyUser = async (req: Request, res: Response) => {
   try {
     const bearerToken = req.headers.authorization;
-    console.log(bearerToken)
+    console.log(bearerToken);
     if (!bearerToken) {
       throw new Error("Bearer token not provided");
     }
@@ -54,8 +61,8 @@ export const verifyUser = async (req: Request, res: Response) => {
     console.log(token);
 
     // Verify token
-    const infoObj: any = await jwt.verify(token, secretKey);
-    console.log(infoObj)
+    const infoObj: any = await jwt.verify(token, config.jwt.accessTokenSecret!);
+    console.log(infoObj);
 
     const userId: string = infoObj.id;
 
@@ -82,7 +89,7 @@ export const userLogin = async (req: Request, res: Response) => {
   try {
     const email: string = req.body.email;
     const password: string = req.body.password;
-//checking email on dtabase
+    //checking email on dtabase
     const result = await pool.query("SELECT * FROM users WHERE email = $1", [
       email,
     ]);
@@ -98,26 +105,34 @@ export const userLogin = async (req: Request, res: Response) => {
         );
 
         if (isPasswordValidated) {
-            //generating token for login
-          const infoObj = {
-            id: user.userid,
-          };
-
-          const expiryInfo = {
-            expiresIn: "365d",
-          };
-
-          const verificationToken = await jwt.sign(
-            infoObj,
-            secretKey,
-            expiryInfo
+          //generating token for login
+          const accessToken = jwt.sign(
+            { id: user.userid },
+            config.jwt.accessTokenSecret!,
+            {
+              expiresIn: ACCESS_TOKEN_EXPIRY,
+            }
           );
+
+          // Generate new refresh token with a longer lifespan
+          const refreshToken = jwt.sign(
+            { id: user.userid },
+            config.jwt.refreshTokenSecret!,
+            { expiresIn: REFRESH_TOKEN_EXPIRY }
+          );
+
+          // const verificationToken = await jwt.sign(
+          //   infoObj,
+          //   secretKey,
+          //   expiryInfo
+          // );
 
           res.json({
             success: true,
             message: "Login successful",
             data: user,
-            token: verificationToken,
+            token: accessToken,
+            refreshToken: refreshToken,
           });
         } else {
           throw new Error("Password is wrong");
