@@ -1,21 +1,20 @@
 import { Request, Response } from "express";
 import {
-  completeTaskService,
-  createTaskService,
-  deleteAllTaskService,
-  deleteTaskService,
-  getAllTasksService,
-  getCompletedTaskService,
-  getRemainingTaskService,
-  remainingTaskService,
-  updateTaskService,
-} from "../Service/taskService";
-import pool from "../Model/Model";
+  completeTaskModel,
+  createTaskModel,
+  deleteAllTaskModel,
+  deleteTaskModel,
+  getAllTasksModel,
+  getCompletedTaskModel,
+  getRemainingTaskModel,
+  remainingTaskModel,
+  updateTaskModel,
+} from "../Model/taskModel";
 
 export const createTask = async (req: Request, res: Response) => {
   try {
     const { task } = req.body;
-    const result = await createTaskService(task);
+    const result = await createTaskModel(task);
     res.json({
       success: true,
       message: "Task added",
@@ -31,7 +30,7 @@ export const createTask = async (req: Request, res: Response) => {
 
 export const getAllTasks = async (req: Request, res: Response) => {
   try {
-    const result = await getAllTasksService();
+    const result = await getAllTasksModel();
     if (result.rows.length === 0) {
       res.json({ message: "No task available" });
     } else {
@@ -53,7 +52,7 @@ export const updateTask = async (req: Request, res: Response) => {
   try {
     const taskid = req.params.id;
     const { task } = req.body;
-    const result = await updateTaskService(taskid, task);
+    const result = await updateTaskModel(taskid, task);
     res.json({
       success: true,
       count: result.rowCount,
@@ -69,7 +68,7 @@ export const updateTask = async (req: Request, res: Response) => {
 export const deleteTask = async (req: Request, res: Response) => {
   try {
     const taskid = req.params.id;
-    const result = await deleteTaskService(taskid);
+    const result = await deleteTaskModel(taskid);
     res.json({
       success: true,
       message: "sucessfully deleted",
@@ -83,7 +82,7 @@ export const deleteTask = async (req: Request, res: Response) => {
 };
 export const deleteAllTask = async (req: Request, res: Response) => {
   try {
-    const result = await deleteAllTaskService();
+    const result = await deleteAllTaskModel();
     res.json({
       success: true,
       message: "sucessfully deleted",
@@ -98,7 +97,7 @@ export const deleteAllTask = async (req: Request, res: Response) => {
 
 export const getRemainingTask = async (req: Request, res: Response) => {
   try {
-    const result = await getRemainingTaskService();
+    const result = await getRemainingTaskModel();
     res.json({
       success: true,
       message: "Sucessful",
@@ -113,7 +112,7 @@ export const getRemainingTask = async (req: Request, res: Response) => {
 };
 export const getCompletedTask = async (req: Request, res: Response) => {
   try {
-    const result = await getCompletedTaskService();
+    const result = await getCompletedTaskModel();
     res.json({
       success: true,
       message: "Sucessful",
@@ -131,7 +130,7 @@ export const completeTask = async (req: Request, res: Response) => {
   try {
     const taskid = req.params.id;
 
-    const result = await completeTaskService(taskid);
+    const result = await completeTaskModel(taskid);
     res.json({
       success: true,
       count: result.rowCount,
@@ -148,7 +147,7 @@ export const remainingTask = async (req: Request, res: Response) => {
   try {
     const taskid = req.params.id;
 
-    const result = await remainingTaskService(taskid);
+    const result = await remainingTaskModel(taskid);
     res.json({
       success: true,
       count: result.rowCount,

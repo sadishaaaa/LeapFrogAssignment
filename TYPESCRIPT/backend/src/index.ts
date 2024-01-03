@@ -1,6 +1,5 @@
 import express, { Request, Response } from "express";
 import config from "./config";
-import routes from "./Routes/router";
 import router from "./Routes/router";
 const app = express();
 app.use(express.json());

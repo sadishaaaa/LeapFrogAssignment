@@ -25,7 +25,7 @@ export const createUser = async (req: Request, res: Response) => {
     };
 
     const expiryInfo = {
-      expiresIn: "2d",
+      expiresIn: ACCESS_TOKEN_EXPIRY,
     };
 
     const verificationToken = await jwt.sign(
